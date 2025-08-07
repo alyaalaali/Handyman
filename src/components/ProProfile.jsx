@@ -1,7 +1,7 @@
 import BrowserRequests from './BrowserRequests'
 import ApplicantList from './ApplicantList'
 
-const ProviderProfile = () => { 
-
+const ProProfile = () => { 
+    
 }
-export default ProviderProfile
+export default ProProfile

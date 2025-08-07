@@ -6,21 +6,44 @@ const ProSignUp = () => {
             <br />
             <input type="text" placeholder="Enter a username" />
             <br />
+            <br />
+
+            <label >National ID number: </label>
+            <br />
+            <input type="number" placeholder="CBR"/>
+            <br />
+            <br />
 
             <label>Email:</label>
             <br />
             <input type="text" placeholder="Enter your email" />
+            <br />
             <br />
 
             <label>Password:</label>
             <br />
             <input type="text" placeholder="Enter your password" />
             <br />
+            <br />
 
             <label>Confirm Password:</label>
             <br />
             <input type="text" placeholder="Confirm your password" />
             <br />
+            <br />
+
+            <label>Location: </label>
+            <br />
+            <input type="text" placeholder="where do you live"/>
+            <br />
+            <br />
+
+            <label>Contact: </label>
+            <br />
+            <input type="number" placeholder="number" />
+            <br />
+            <br />
+
 
             <label for="fruit">Cetogery type: </label>
 
