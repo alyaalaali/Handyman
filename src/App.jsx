@@ -9,10 +9,10 @@ import Home from './components/Home'
 import Header from './components/Header'
 import WorkerType from './components/WorkerType'
 import UserSignUp from './components/UserSignUp'
-import ProSignIn from './components/ProSignUp'
+import ProSignUp from './components/ProSignUp'
 import SignIn from './components/SignIn'
-import RequestForm from './components/RequestForm'
-
+import UseDashboard from './components/UseDashboard'
+import ProviderProfile from './components'
 
 const App = () => {
   return (
