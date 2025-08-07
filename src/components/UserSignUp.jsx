@@ -1,8 +1,25 @@
 const UserSignUp = () => {
     return (
-        <div className="user-sign-up">
+        <form className="user-sign-up">
+            <label>Username:</label>
+            <input type="text" placeholder="" />
+            <br />
+
+            <label>Email:</label>
+            <input type="text" placeholder="" />
+            <br />
+
+            <label>Password:</label>
+            <input type="text" placeholder="" />
+            <br />
+
+            <label>Confirm Password:</label>
+            <input type="text" placeholder="" />
+            <br />
+
+            <button type="submit">continue</button>
             
-        </div>
+        </form>
     )
 }
 export default UserSignUp
