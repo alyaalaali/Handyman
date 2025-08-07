@@ -1,0 +1,10 @@
+.worker-type {
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    margin: 20px;
+    align-items: center ;
+    justify-content: center;
+    align-content: center;
+
+}
