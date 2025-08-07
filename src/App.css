@@ -8,3 +8,14 @@
     align-content: center;
 
 }
+.user-selection {
+    background-color:  rgb(0, 123, 255) ;
+    border: 2px solid black;
+    padding: 40px;
+}
+.provider-selection{
+    background-color: rgb(0, 123, 255);
+    border: 2px solid black;
+    padding: 40px;
+    margin: 20px;
+}
