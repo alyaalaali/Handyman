@@ -1,6 +1,6 @@
 const UserSignUp = () => {
     return (
-        <form className="user-sign-up">
+        <form className="user-sign-up" action="/user/sign-up" >
             <label>Username:</label>
             <br />
             <input type="text" placeholder="Enter a username" />
