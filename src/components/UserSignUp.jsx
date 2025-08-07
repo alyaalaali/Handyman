@@ -2,19 +2,23 @@ const UserSignUp = () => {
     return (
         <form className="user-sign-up">
             <label>Username:</label>
-            <input type="text" placeholder="" />
+            <br />
+            <input type="text" placeholder="Enter a username" />
             <br />
 
             <label>Email:</label>
-            <input type="text" placeholder="" />
+            <br />
+            <input type="text" placeholder="Enter your email" />
             <br />
 
             <label>Password:</label>
-            <input type="text" placeholder="" />
+            <br />
+            <input type="text" placeholder="Enter your password" />
             <br />
 
             <label>Confirm Password:</label>
-            <input type="text" placeholder="" />
+            <br />
+            <input type="text" placeholder="Confirm your password" />
             <br />
 
             <button type="submit">continue</button>
