@@ -2,7 +2,7 @@ const ProSignUp = () => {
     return (
         <>
         <form className="user-sign-up" action="/provider/sign-up" >
-            <label>Username:</label>
+            <label>Username</label>
             <br />
             <input type="text" placeholder="Enter a username" />
             <br />
@@ -14,38 +14,21 @@ const ProSignUp = () => {
             <br />
             <br />
 
-            <label>Email:</label>
+            <label>Email</label>
             <br />
             <input type="text" placeholder="Enter your email" />
             <br />
             <br />
 
-            <label>Password:</label>
+            <label>Password</label>
             <br />
             <input type="text" placeholder="Enter your password" />
             <br />
             <br />
 
-            <label>Confirm Password:</label>
-            <br />
-            <input type="text" placeholder="Confirm your password" />
-            <br />
-            <br />
-
-            <label>Location: </label>
-            <br />
-            <input type="text" placeholder="where do you live"/>
-            <br />
-            <br />
-
-            <label>Contact: </label>
-            <br />
-            <input type="number" placeholder="number" />
-            <br />
-            <br />
 
 
-            <label for="fruit">Cetogery type: </label>
+            <label for="Cetogery">Cetogery type: </label>
 
             <select list="Cetogery" name="cetogery">
             <option value=""></option>
