@@ -3,6 +3,8 @@ import RequestForm from './RequestForm'
 // import CompRequest from './CompRequest'
 
 const UseDashboard = () => {
-
+    return (
+        <RequestForm />
+    )
 }
 export default UseDashboard
