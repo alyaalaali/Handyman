@@ -13,6 +13,7 @@ import UserSignUp from './components/UserSignUp'
 import ProSignUp from './components/ProSignUp'
 import SignIn from './components/SignIn'
 import UseDashboard from './components/UseDashboard'
+import SideBar from "./components/SideBar"
 // import ProviderProfile from './components'
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
     <>
     <header>
       <Header />
+      <SideBar />
     </header>
     <br />
       <div>
@@ -30,6 +32,7 @@ const App = () => {
         <Route path="/provider/sign-up" element={<ProSignUp />}/>
         <Route path="/sign-in" element={<SignIn />}/>
         <Route path="/dashboard" element={<UseDashboard />}/>
+
         </Routes>
       </div>
 
