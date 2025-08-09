@@ -1,15 +1,17 @@
 import "./App.css"
-
 import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
-
-import "./App.css"
+import Login from "./components/Login"
+import Register from "./components/Register"
 
 const App = () => {
   return (
     <>
       <div>
-        <Routes></Routes>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
       </div>
     </>
   )
