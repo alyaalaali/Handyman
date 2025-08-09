@@ -1,10 +1,16 @@
-import { useState } from "react"
 import "./App.css"
 
-function App() {
+import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
+
+import "./App.css"
+
+const App = () => {
   return (
     <>
-      <p>hi</p>
+      <div>
+        <Routes></Routes>
+      </div>
     </>
   )
 }
