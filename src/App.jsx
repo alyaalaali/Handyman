@@ -7,12 +7,10 @@ import UserRegister from './components/UserRegister'
 import Navbar from './components/NavBar'
 import Home from './components/Home'
 import Request from './components/userView/Request'
-import RequestForm from './components/userView/RequestForm'
-import ActiveRequests from './components/userView/ActiveRequests'
-import CompletedRequests from './components/userView/CompletedRequests'
 import { CheckSession } from './services/Auth'
 import ProviderDashboard from './components/providerView/ProviderDashboard'
 import UserDashboard from './components/userView/UserDashboard'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -20,13 +18,14 @@ const App = () => {
     //If a token exists, sends token to localStorage to persist logged in user
     const user = await CheckSession()
     setUser(user)
-    console.log(user)
+    console.log("user is:", user)
   }
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token")
     // Check if token exists before requesting to validate the token
     if (token) {
       checkToken()
+      console.log("user is:", user)
     }
   }, [])
 
@@ -43,7 +42,9 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />         
+          <Route path="/requests/*" element={<Request user={user} />} />
+
 
           
 

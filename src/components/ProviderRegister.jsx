@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { RegisterProvider } from '../services/Auth'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { RegisterProvider } from "../services/Auth"
 
 const ProviderRegister = () => {
   let navigate = useNavigate()
 
   const initialState = {
-    CPR: '',
-    email: '',
-    password: '',
-    contact: '',
-    location: '',
+    CPR: "",
+    email: "",
+    password: "",
+    contact: "",
+    location: "",
     categories: [],
-    profession: '',
-    confirmPassword: ''
+    profession: "",
+    confirmPassword: "",
   }
 
   const [categories, setCategories] = useState([
-    { id: 1, name: 'plumbing', checked: false },
-    { id: 2, name: 'electrical', checked: false },
-    { id: 3, name: 'carpentry', checked: false },
-    { id: 4, name: 'painting', checked: false },
-    { id: 5, name: 'cleaning', checked: false }
+    { id: 1, name: "plumbing", checked: false },
+    { id: 2, name: "electrical", checked: false },
+    { id: 3, name: "carpentry", checked: false },
+    { id: 4, name: "painting", checked: false },
+    { id: 5, name: "cleaning", checked: false },
   ])
 
   const [formValues, setFormValues] = useState(initialState)
@@ -39,10 +39,10 @@ const ProviderRegister = () => {
       location: formValues.location,
       contact: formValues.contact,
       categories: selectedCategories,
-      profession: formValues.profession
+      profession: formValues.profession,
     })
     setFormValues(initialState)
-    navigate('/login')
+    navigate("/login")
   }
 
   const clickHandler = ({ target }) => {

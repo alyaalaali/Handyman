@@ -25,6 +25,7 @@ const Login = ({ setUser }) => {
     } else {
       console.error('Unknown user type:', payload.userType)
     }
+
   }
 
   return (
