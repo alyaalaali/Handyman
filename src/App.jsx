@@ -1,16 +1,14 @@
-import './App.css'
-import { use, useEffect, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Login from './components/Login'
-import Register from './components/Register'
-import UserRegister from './components/UserRegister'
-import Navbar from './components/NavBar'
-import Home from './components/Home'
-import Request from './components/userView/Request'
-import { CheckSession } from './services/Auth'
-import ProviderDashboard from './components/providerView/ProviderDashboard'
-import UserDashboard from './components/userView/UserDashboard'
-
+import "./App.css"
+import { use, useEffect, useState } from "react"
+import { Routes, Route } from "react-router-dom"
+import Login from "./components/Login"
+import Register from "./components/Register"
+import Navbar from "./components/NavBar"
+import Home from "./components/Home"
+import Request from "./components/userView/Request"
+import { CheckSession } from "./services/Auth"
+import ProviderDashboard from "./components/providerView/ProviderDashboard"
+import UserDashboard from "./components/userView/UserDashboard"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -42,16 +40,13 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Home />} />         
+          <Route path="/" element={<Home />} />
           <Route path="/requests/*" element={<Request user={user} />} />
 
-
-          
-
-          {user?.userType === 'user' && (
+          {user?.userType === "user" && (
             <Route path="/dashboard" element={<UserDashboard user={user} />} />
           )}
-          {user?.userType === 'provider' && (
+          {user?.userType === "provider" && (
             <Route
               path="/dashboard"
               element={<ProviderDashboard user={user} />}
