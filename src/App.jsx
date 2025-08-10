@@ -12,6 +12,7 @@ import ActiveRequests from './components/userView/ActiveRequests'
 import CompletedRequests from './components/userView/CompletedRequests'
 import { CheckSession } from './services/Auth'
 
+
 const App = () => {
   const [user, setUser] = useState(null)
   const checkToken = async () => {
@@ -44,10 +45,7 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-          <Route path="/requests" element={<Request />} />
-          <Route path="/requests/new" element={<RequestForm />} />
-          <Route path="/requests/active" element={<ActiveRequests />} />
-          <Route path="/requests/Completed" element={<CompletedRequests />} />
+          <Route path="/requests/*" element={<Request />} />
         </Routes>
       </div>
     </>
