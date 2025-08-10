@@ -9,7 +9,7 @@ const SideBar = () => {
         <Link to="/requests/completed">Completed Requests</Link>
       </nav>
     </>
-  )
+  ) 
 }
 
 export default SideBar
