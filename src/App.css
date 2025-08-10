@@ -1,8 +1,23 @@
+
+
+
+/* Home page */
 .home {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+/* Nav bar */
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(151, 207, 255);
+    padding: 20px;
+    text-decoration: none;
+}
+
+/* Side bar  */
 .side {
     display: flex;
     flex-direction: column;
@@ -12,11 +27,12 @@
     height: 690px;
     gap: 25px;
     background-color: rgb(129, 127, 127);
-    position: relative;
+    position: absolute;
+    top: 45px;
     left: -29px;
 }
 
-
+/* Worker type the selection between user and prov */
 .worker-type {
     display: flex;
     flex-direction: row;
@@ -27,14 +43,54 @@
     align-content: center;
 
 }
+
+/* User sign up file */
 .user-selection {
     background-color:  rgb(0, 123, 255) ;
     border: 2px solid black;
     padding: 40px;
 }
+.user-sign-up {
+    text-align: center;
+}
+
+/* Provider sign up file */
 .provider-selection{
     background-color: rgb(0, 123, 255);
     border: 2px solid black;
     padding: 40px;
     margin: 20px;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* User dashboard page */
+.request-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.requests {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Notification page */
+.notifaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.active-requests {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

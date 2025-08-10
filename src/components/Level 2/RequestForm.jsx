@@ -1,8 +1,8 @@
-import { BrowserRouter as Router , Routes, Route } from "react-router-dom"
 
-const CreateRequest = () => {
+const RequestForm = () => {
     return (
     <>
+        <div className="request-form">
         <h1>Hello</h1>
         <div>
             <h2>Create Request</h2>
@@ -50,21 +50,12 @@ const CreateRequest = () => {
             <button type="submit">send</button>
             </form>
         </div>
+        
+        </div>
             
 
         </>
     )
-}
-const RequestForm = () => {
-    return (
-        <>
-        <Router>
-        <Routes>
-            <Route path="/create/request" element={<CreateRequest />} />
-        </Routes>
-        </Router>
-        </>
-        
-    )
+
 }
 export default RequestForm

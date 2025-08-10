@@ -1,5 +1,9 @@
+import SideBar from "./SideBar"
+
 const Home = () => {
     return (
+        <>
+        
         <div className="home">
         <h1>Handyman App</h1>
         Background of website: 
@@ -7,6 +11,8 @@ const Home = () => {
         <p>______________________________________________________</p>
         <p>______________________________________________________</p>
         </div>
+
+        </>
     )
 
 }

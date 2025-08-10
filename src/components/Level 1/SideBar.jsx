@@ -4,12 +4,12 @@ const SideBar = () => {
 
     return (
         <>
-        <nav className="side">
+        <header className="side">
             <br />
-        <Link to="/create">Create Request</Link>
-        <Link to="/active">Active Requests</Link>
+        <Link to="/user/dashboard/create">Create Request</Link>
+        <Link to="/user/dashboard/requests/active">Active Requests</Link>
         <Link to="/completed">Completed Requests</Link>
-        </nav>
+        </header>
         </>
     )
 }
