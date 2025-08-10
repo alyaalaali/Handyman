@@ -6,9 +6,6 @@ import Register from "./components/Register"
 import Navbar from "./components/NavBar"
 import Home from "./components/Home"
 import Request from "./components/userView/Request"
-import RequestForm from "./components/userView/RequestForm"
-import ActiveRequests from "./components/userView/ActiveRequests"
-import CompletedRequests from "./components/userView/CompletedRequests"
 
 const App = () => {
   return (
@@ -19,10 +16,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-          <Route path="/requests" element={<Request />} />
-          <Route path="/requests/new" element={<RequestForm />} />
-          <Route path="/requests/active" element={<ActiveRequests />} />
-          <Route path="/requests/Completed" element={<CompletedRequests />} />
+          <Route path="/requests/*" element={<Request />} />
         </Routes>
       </div>
     </>
