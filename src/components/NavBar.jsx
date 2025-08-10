@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 const Navbar = ({ user, handleLogOut }) => {
   let userOptions
 
-  if (user) {
+  if (user?.userType === "user") {
+    console.log("user is:", user)
+
     userOptions = (
       <nav>
         <Link to="/">home</Link>

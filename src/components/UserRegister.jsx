@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../services/Auth'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { RegisterUser } from "../services/Auth"
 
 const UserRegister = () => {
   let navigate = useNavigate()
 
   const initialState = {
-    email: '',
-    password: '',
-    confirmPassword: '',
-    location: '',
-    contact: ''
+    email: "",
+    password: "",
+    confirmPassword: "",
+    location: "",
+    contact: "",
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -22,14 +22,14 @@ const UserRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterUser({
-      email: formValues.name,
+      email: formValues.email,
       password: formValues.password,
       location: formValues.location,
-      contact: formValues.contact
+      contact: formValues.contact,
     })
 
     setFormValues(initialState)
-    navigate('/login')
+    navigate("/login")
   }
 
   return (
