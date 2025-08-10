@@ -1,26 +1,27 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import axios from "axios"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { RegisterProvider } from '../services/Auth'
 
 const ProviderRegister = () => {
   let navigate = useNavigate()
+
   const initialState = {
-    CPR: "",
-    email: "",
-    password: "",
-    contact: "",
-    location: "",
+    CPR: '',
+    email: '',
+    password: '',
+    contact: '',
+    location: '',
     categories: [],
-    profession: "",
-    confirmPassword: "",
-    valid: "Password must match",
+    profession: '',
+    confirmPassword: ''
   }
+
   const [categories, setCategories] = useState([
-    { id: 1, name: "plumbing", checked: false },
-    { id: 2, name: "electrical", checked: false },
-    { id: 3, name: "carpentry", checked: false },
-    { id: 4, name: "painting", checked: false },
-    { id: 5, name: "cleaning", checked: false },
+    { id: 1, name: 'plumbing', checked: false },
+    { id: 2, name: 'electrical', checked: false },
+    { id: 3, name: 'carpentry', checked: false },
+    { id: 4, name: 'painting', checked: false },
+    { id: 5, name: 'cleaning', checked: false }
   ])
 
   const [formValues, setFormValues] = useState(initialState)
@@ -31,32 +32,17 @@ const ProviderRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    if (formValues.password === formValues.confirmPassword) {
-      setFormValues({
-        ...formValues,
-        email: "",
-        password: "",
-        confirmPassword: "",
-        valid: "Successfully Created an account!",
-      })
-      // await axios.post("http://localhost:3001/auth/register", {
-      // CPR: formValues.CPR,
-      // email: formValues.email,
-      // password: formValues.password,
-      // location: formValues.location,
-      // profession: formValues.profession,
-      // contact: formValues.contact,
-      // categories: selectedCategories
-
-      // })
-      navigate("/login")
-    } else {
-      setFormValues({
-        ...formValues,
-        valid: "password must match",
-      })
-    }
+    await RegisterProvider({
+      CPR: formValues.CPR,
+      email: formValues.name,
+      password: formValues.password,
+      location: formValues.location,
+      contact: formValues.contact,
+      categories: selectedCategories,
+      profession: formValues.profession
+    })
+    setFormValues(initialState)
+    navigate('/login')
   }
 
   const clickHandler = ({ target }) => {
@@ -179,12 +165,14 @@ const ProviderRegister = () => {
           disabled={
             !formValues.email ||
             (!formValues.password &&
-              formValues.password === formValues.confirmPassword)
+              formValues.password === formValues.confirmPassword) ||
+            !formValues.location ||
+            !formValues.contact ||
+            !formValues.CPR
           }
         >
           Register
         </button>
-        <p>{formValues.valid}</p>
       </form>
     </div>
   )
