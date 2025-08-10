@@ -3,11 +3,9 @@ const Navbar = ({ user, handleLogOut }) => {
   let userOptions
 
   if (user?.userType === "user") {
-    console.log("user is:", user)
-
     userOptions = (
       <nav>
-        <Link to="/">home</Link>
+        <Link to="/dashboard">User Dashboard</Link>
         <Link to="/requests">Requests</Link>
         <Link to="/login" onClick={handleLogOut}>
           logout
