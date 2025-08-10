@@ -3,7 +3,7 @@ const ReviewForm = () => {
         <>
         <h2>Rate Your Experience</h2>
         <form action="/add/review">
-            <label htmlFor="">Rating</label>
+            <label >Rating</label>
             <select name="rating" className="rating">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -11,6 +11,13 @@ const ReviewForm = () => {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
+            <br />
+
+            <label>description</label>
+            <textarea name="description"></textarea>
+            <br />
+
+            <button>send</button>
         </form>
         </>
     )
