@@ -3,6 +3,7 @@ import { use, useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
+import UserRegister from './components/UserRegister'
 import Navbar from './components/NavBar'
 import Home from './components/Home'
 import Request from './components/userView/Request'
@@ -32,6 +33,8 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
+
+  
 
   return (
     <>

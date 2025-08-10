@@ -1,14 +1,16 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import axios from "axios"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { RegisterUser } from '../services/Auth'
 
 const UserRegister = () => {
   let navigate = useNavigate()
+
   const initialState = {
-    email: "",
-    password: "",
-    confirmPassword: "",
-    valid: "Password must match",
+    email: '',
+    password: '',
+    confirmPassword: '',
+    location: '',
+    contact: ''
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -19,26 +21,15 @@ const UserRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    await RegisterUser({
+      email: formValues.name,
+      password: formValues.password,
+      location: formValues.location,
+      contact: formValues.contact
+    })
 
-    if (formValues.password === formValues.confirmPassword) {
-      setFormValues({
-        ...formValues,
-        email: "",
-        password: "",
-        confirmPassword: "",
-        valid: "Successfully Created an account!",
-      })
-      // await axios.post("http://localhost:3001/auth/register", {
-      //   email: formValues.email,
-      //   password: formValues.password,
-      // })
-      navigate("/login")
-    } else {
-      setFormValues({
-        ...formValues,
-        valid: "password must match",
-      })
-    }
+    setFormValues(initialState)
+    navigate('/login')
   }
 
   return (
@@ -78,17 +69,38 @@ const UserRegister = () => {
             required
           />
         </div>
+        <div className="input-wrapper">
+          <label htmlFor="password">Location</label>
+          <input
+            onChange={handleChange}
+            type="location"
+            id="location"
+            value={formValues.location}
+            required
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="password">Phone Number</label>
+          <input
+            onChange={handleChange}
+            type="contact"
+            id="contact"
+            value={formValues.contact}
+            required
+          />
+        </div>
 
         <button
           disabled={
             !formValues.email ||
             (!formValues.password &&
-              formValues.password === formValues.confirmPassword)
+              formValues.password === formValues.confirmPassword) ||
+            !formValues.location ||
+            !formValues.contact
           }
         >
           Register
         </button>
-        <p>{formValues.valid}</p>
       </form>
     </div>
   )
