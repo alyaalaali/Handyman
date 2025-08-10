@@ -11,7 +11,8 @@ import RequestForm from './components/userView/RequestForm'
 import ActiveRequests from './components/userView/ActiveRequests'
 import CompletedRequests from './components/userView/CompletedRequests'
 import { CheckSession } from './services/Auth'
-
+import ProviderDashboard from './components/providerView/ProviderDashboard'
+import UserDashboard from './components/userView/UserDashboard'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -35,8 +36,6 @@ const App = () => {
     localStorage.clear()
   }
 
-  
-
   return (
     <>
       <Navbar user={user} handleLogOut={handleLogOut} />
@@ -45,7 +44,18 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-          <Route path="/requests/*" element={<Request />} />
+
+          
+
+          {user?.userType === 'user' && (
+            <Route path="/dashboard" element={<UserDashboard user={user} />} />
+          )}
+          {user?.userType === 'provider' && (
+            <Route
+              path="/dashboard"
+              element={<ProviderDashboard user={user} />}
+            />
+          )}
         </Routes>
       </div>
     </>

@@ -34,7 +34,7 @@ const ProviderRegister = () => {
     e.preventDefault()
     await RegisterProvider({
       CPR: formValues.CPR,
-      email: formValues.name,
+      email: formValues.email,
       password: formValues.password,
       location: formValues.location,
       contact: formValues.contact,
