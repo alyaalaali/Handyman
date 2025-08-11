@@ -1,14 +1,19 @@
-const ReviewForm = () => {
+import Client from "../../services/api"
 
-  const addReview = async() => {
+const ReviewForm = ({ user }) => {
+
+  const addReview = async(e) => {
     try {
-      const response = await axios.post('http://localhost:3000/review/new')
+      e.preventDefault()
+      const response = await Client.post('http://localhost:3000/review/new', )
       console.log(response)
     }
     catch (error) {
       console.log(error)
     }
   }
+
+  
 
   return (
     <>
