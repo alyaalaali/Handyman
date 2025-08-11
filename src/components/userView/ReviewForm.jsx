@@ -1,10 +1,41 @@
-const ReviewForm = () => {
+import { useParams } from "react-router-dom"
+import Client from "../../services/api"
+import { useState } from "react"
+
+const ReviewForm = ({ user }) => {
+  const {requestId} = useParams()
+  const initialState = {
+    rating: 1,
+    description: "",
+  }
+  const [formValues, setFormValues] = useState(initialState)
+  console.log(formValues)
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const addReview = async (e) => {
+    try {
+      e.preventDefault()
+      const response = await Client.post('http://localhost:3000/review/new', {
+        ...formValues,
+        requestId
+      })
+      console.log(response)
+    }
+    catch (error) {
+      console.log(error)
+    }
+
+    setFormValues(initialState)
+  }
+
   return (
     <>
       <h2>Rate Your Experience</h2>
-      <form action="/add/review">
+      <form onSubmit={addReview}>
         <label>Rating</label>
-        <select name="rating" className="rating">
+        <select name="rating" className="rating" onChange={handleChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -14,10 +45,10 @@ const ReviewForm = () => {
         <br />
 
         <label>description</label>
-        <textarea name="description"></textarea>
+        <textarea onChange={handleChange} name="description"></textarea>
         <br />
 
-        <button>send</button>
+        <button >send</button>
       </form>
     </>
   )

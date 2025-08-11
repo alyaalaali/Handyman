@@ -9,6 +9,7 @@ import Request from "./components/userView/Request"
 import { CheckSession } from "./services/Auth"
 import ProviderDashboard from "./components/providerView/ProviderDashboard"
 import UserDashboard from "./components/userView/UserDashboard"
+import ReviewForm from "./components/userView/ReviewForm"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -42,8 +43,11 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           {user && (
+            <>
             <Route path="/requests/*" element={<Request user={user} />} />
+            </>
           )}
+          
 
           {user?.userType === "user" && (
             <Route path="/dashboard" element={<UserDashboard user={user} />} />
