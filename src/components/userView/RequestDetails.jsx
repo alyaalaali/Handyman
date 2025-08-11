@@ -1,7 +1,9 @@
-import { useParams, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
-import { BASE_URL } from "../../services/api"
-import Client from "../../services/api"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import Client, { BASE_URL } from "../../services/api"
+import { Link } from "react-router-dom"
+import ReviewForm from "./ReviewForm"
+
 const RequestDetails = () => {
   const { requestId } = useParams()
   const navigate = useNavigate()
@@ -10,8 +12,10 @@ const RequestDetails = () => {
   useEffect(() => {
     const getRequestDetails = async () => {
       const response = await Client.get(`${BASE_URL}/request/${requestId}`)
+      console.log(response.data)
       setRequest(response.data)
     }
+
     getRequestDetails()
   }, [requestId])
 
@@ -39,6 +43,10 @@ const RequestDetails = () => {
 
         <h3>Posted On</h3>
         <p>{new Date(request.createdAt).toLocaleDateString()}</p>
+
+        <Link to="/review/new">
+        <button>Review</button>
+        </Link>
       </div>
     </div>
   )

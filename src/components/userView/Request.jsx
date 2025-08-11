@@ -14,7 +14,7 @@ const Request = ({ user }) => {
           <Route path="/new" element={<RequestForm user={user} />} />
           <Route path="/active" element={<ActiveRequests />} />
           <Route path="/completed" element={<CompletedRequests />} />
-          <Route path=":requestId" element={<RequestDetails />} />
+          <Route path="/:requestId" element={<RequestDetails />} />
         </Routes>
       </div>
     </>

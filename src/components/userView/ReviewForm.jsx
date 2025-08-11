@@ -1,8 +1,19 @@
 const ReviewForm = () => {
+
+  const addReview = async() => {
+    try {
+      const response = await axios.post('http://localhost:3000/review/new')
+      console.log(response)
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <h2>Rate Your Experience</h2>
-      <form action="/add/review">
+      <form onSubmit={addReview}>
         <label>Rating</label>
         <select name="rating" className="rating">
           <option value="1">1</option>
@@ -17,7 +28,7 @@ const ReviewForm = () => {
         <textarea name="description"></textarea>
         <br />
 
-        <button>send</button>
+        <button >send</button>
       </form>
     </>
   )
