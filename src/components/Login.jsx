@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { SignIn } from '../services/Auth'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { SignIn } from "../services/Auth"
 
 const Login = ({ setUser }) => {
   let navigate = useNavigate()
 
-  const initialState = { email: '', password: '' }
+  const initialState = { email: "", password: "" }
 
   const [formValues, setFormValues] = useState(initialState)
 
@@ -18,14 +18,13 @@ const Login = ({ setUser }) => {
     const payload = await SignIn(formValues)
     setFormValues(initialState)
     setUser(payload)
-    if (payload.userType === 'user') {
-      navigate('/dashboard')
-    } else if (payload.userType === 'provider') {
-      navigate('/dashboard')
+    if (payload.userType === "user") {
+      navigate("/dashboard")
+    } else if (payload.userType === "provider") {
+      navigate("/dashboard")
     } else {
-      console.error('Unknown user type:', payload.userType)
+      console.error("Unknown user type:", payload.userType)
     }
-
   }
 
   return (

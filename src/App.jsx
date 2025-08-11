@@ -10,7 +10,8 @@ import { CheckSession } from "./services/Auth"
 import ProviderDashboard from "./components/providerView/ProviderDashboard"
 import UserDashboard from "./components/userView/UserDashboard"
 import ReviewForm from "./components/userView/ReviewForm"
-
+import MyProfile from "./components/providerView/MyProfile"
+import PublicProfile from "./components/PublicProfile"
 const App = () => {
   const [user, setUser] = useState(null)
   const checkToken = async () => {
@@ -42,21 +43,25 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
+          <Route path="/profile/:id" element={<PublicProfile />} />
+
           {user && (
             <>
-            <Route path="/requests/*" element={<Request user={user} />} />
+              <Route path="/requests/*" element={<Request user={user} />} />
             </>
           )}
-          
 
           {user?.userType === "user" && (
             <Route path="/dashboard" element={<UserDashboard user={user} />} />
           )}
           {user?.userType === "provider" && (
-            <Route
-              path="/dashboard"
-              element={<ProviderDashboard user={user} />}
-            />
+            <>
+              <Route
+                path="/dashboard"
+                element={<ProviderDashboard user={user} />}
+              />
+              <Route path="/profile/me" element={<MyProfile />} />
+            </>
           )}
         </Routes>
       </div>

@@ -21,6 +21,7 @@ const Navbar = ({ user, handleLogOut }) => {
         <Link to="/login" onClick={handleLogOut}>
           logout
         </Link>
+        <Link to="/profile/me">Profile</Link>
       </nav>
     )
   }

@@ -61,11 +61,9 @@ const RequestDetails = () => {
         {request.status === "active" ? (
           <button onClick={handleMarkComplete}>Mark as complete</button>
         ) : (
-           <Link to={`/requests/${request._id}/review/new`} >
-
-          <button>Review</button>       
+          <Link to={`/requests/${request._id}/review/new`}>
+            <button>Review</button>
           </Link>
-
         )}
       </div>
     </div>
