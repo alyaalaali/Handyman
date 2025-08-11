@@ -1,9 +1,10 @@
+import { Route, Routes } from "react-router-dom"
 import SideBar from "../SideBar"
-import { Routes, Route } from "react-router-dom"
-import RequestForm from "./RequestForm"
 import ActiveRequests from "./ActiveRequests"
 import CompletedRequests from "./CompletedRequests"
 import RequestDetails from "./RequestDetails"
+import RequestForm from "./RequestForm"
+import ReviewForm from "./ReviewForm"
 
 const Request = ({ user }) => {
   return (
@@ -15,6 +16,7 @@ const Request = ({ user }) => {
           <Route path="/active" element={<ActiveRequests />} />
           <Route path="/completed" element={<CompletedRequests />} />
           <Route path="/:requestId" element={<RequestDetails />} />
+          <Route path="/:requestId/review/new" element={<ReviewForm user={user}/>} />
         </Routes>
       </div>
     </>

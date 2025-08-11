@@ -44,7 +44,7 @@ const RequestDetails = () => {
         <h3>Posted On</h3>
         <p>{new Date(request.createdAt).toLocaleDateString()}</p>
 
-        <Link to="/review/new">
+        <Link to={`/requests/${request._id}/review/new`} >
         <button>Review</button>
         </Link>
       </div>

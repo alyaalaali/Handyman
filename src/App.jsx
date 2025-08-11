@@ -45,7 +45,6 @@ const App = () => {
           {user && (
             <>
             <Route path="/requests/*" element={<Request user={user} />} />
-            <Route path="/review/new" element={<ReviewForm user={user}/>} />
             </>
           )}
           
