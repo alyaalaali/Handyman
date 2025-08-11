@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { BASE_URL } from "../../services/api"
 import Client from "../../services/api"
+
 const RequestDetails = () => {
   const { requestId } = useParams()
   const navigate = useNavigate()
@@ -14,6 +15,18 @@ const RequestDetails = () => {
     }
     getRequestDetails()
   }, [requestId])
+
+  const handleDelete = async () => {
+    await Client.delete(`${BASE_URL}/request/${requestId}`)
+    navigate("/requests")
+  }
+
+  const handleMarkComplete = async () => {
+    const response = await Client.put(`${BASE_URL}/request/${requestId}`, {
+      status: "closed",
+    })
+    setRequest(response.data)
+  }
 
   if (!request) return <div>Loading...</div>
 
@@ -39,6 +52,14 @@ const RequestDetails = () => {
 
         <h3>Posted On</h3>
         <p>{new Date(request.createdAt).toLocaleDateString()}</p>
+
+        <button onClick={handleDelete}>Delete</button>
+
+        {request.status === "active" ? (
+          <button onClick={handleMarkComplete}>Mark as complete</button>
+        ) : (
+          <button>Review</button>
+        )}
       </div>
     </div>
   )
