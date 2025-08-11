@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { BASE_URL } from "../../services/api"
 import axios from "axios"
-
+import Client from "../../services/api"
 const RequestForm = ({ user }) => {
   let navigate = useNavigate()
 
@@ -20,9 +20,8 @@ const RequestForm = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await axios.post(`${BASE_URL}/request/new`, {
+    const response = await Client.post(`${BASE_URL}/request/new`, {
       ...formValues,
-      userId: user.id,
     })
 
     setFormValues(initialState)

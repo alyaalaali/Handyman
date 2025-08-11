@@ -6,6 +6,7 @@ const ProviderRegister = () => {
   let navigate = useNavigate()
 
   const initialState = {
+    name: "",
     CPR: "",
     email: "",
     password: "",
@@ -33,6 +34,7 @@ const ProviderRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterProvider({
+      name: formValues.name,
       CPR: formValues.CPR,
       email: formValues.email,
       password: formValues.password,
@@ -65,6 +67,16 @@ const ProviderRegister = () => {
     <div className="col register">
       <h2>Register as a service provider!</h2>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="name">name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Your Name"
+          value={formValues.name}
+          onChange={handleChange}
+          required
+        />
+
         <div className="input-wrapper">
           <label htmlFor="CPR">CPR Number</label>
           <input

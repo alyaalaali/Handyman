@@ -41,7 +41,9 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-          <Route path="/requests/*" element={<Request user={user} />} />
+          {user && (
+            <Route path="/requests/*" element={<Request user={user} />} />
+          )}
 
           {user?.userType === "user" && (
             <Route path="/dashboard" element={<UserDashboard user={user} />} />
