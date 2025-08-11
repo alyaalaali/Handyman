@@ -12,6 +12,7 @@ import UserDashboard from "./components/userView/UserDashboard"
 import ReviewForm from "./components/userView/ReviewForm"
 import MyProfile from "./components/providerView/MyProfile"
 import PublicProfile from "./components/PublicProfile"
+import ApplicantsList from "./components/userView/ApplicantList"
 const App = () => {
   const [user, setUser] = useState(null)
   const checkToken = async () => {
@@ -44,6 +45,10 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile/:id" element={<PublicProfile />} />
+          <Route
+            path="/requests/:requestId/applicants"
+            element={<ApplicantsList user={user} />}
+          />
 
           {user && (
             <>

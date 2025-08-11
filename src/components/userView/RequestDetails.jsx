@@ -55,7 +55,11 @@ const RequestDetails = () => {
 
         <h3>Posted On</h3>
         <p>{new Date(request.createdAt).toLocaleDateString()}</p>
-
+        {request.status === "active" && (
+          <Link to={`/requests/${requestId}/applicants`}>
+            <button>View Applicants ({request.appliedBy?.length || 0})</button>
+          </Link>
+        )}
         <button onClick={handleDelete}>Delete</button>
 
         {request.status === "active" ? (
