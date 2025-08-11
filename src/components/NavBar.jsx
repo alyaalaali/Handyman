@@ -13,6 +13,17 @@ const Navbar = ({ user, handleLogOut }) => {
       </nav>
     )
   }
+  if (user?.userType === "provider") {
+    userOptions = (
+      <nav>
+        <Link to="/dashboard">Provider Dashboard</Link>
+        <Link to="/applications">Applications</Link>
+        <Link to="/login" onClick={handleLogOut}>
+          logout
+        </Link>
+      </nav>
+    )
+  }
 
   const publicOptions = (
     <nav>
