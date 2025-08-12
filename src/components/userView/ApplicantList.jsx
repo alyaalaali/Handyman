@@ -33,7 +33,9 @@ const ApplicantsList = ({ user }) => {
         <div>
           <h3>Accepted Provider</h3>
           <div>
-            <h4>{request.providerId.name}</h4>
+            <Link to={`/profile/${request.providerId._id}`}>
+              <h4>{request.providerId.name}</h4>
+            </Link>
             <p>Contact: {request.providerId.contact}</p>
             <p>Location: {request.providerId.location}</p>
           </div>
@@ -43,7 +45,10 @@ const ApplicantsList = ({ user }) => {
           {applicants.map((provider) => (
             <div key={provider._id}>
               <div>
-                <h3>{provider.name}</h3>
+                <Link to={`/profile/${provider._id}`}>
+                  <h3>{provider.name}</h3>
+                </Link>
+
                 <p>Profession: {provider.profession}</p>
                 <p>Contact: {provider.contact}</p>
                 <p>Location: {provider.location}</p>
