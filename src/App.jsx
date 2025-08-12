@@ -1,3 +1,4 @@
+
 import "./App.css"
 import "./forms.css"
 import { use, useEffect, useState } from "react"
@@ -69,10 +70,6 @@ const App = () => {
           )}
           {user?.userType === "provider" && (
             <>
-              <Route
-                path="/dashboard"
-                element={<ProviderDashboard user={user} />}
-              />
               <Route path="/profile/me" element={<MyProfile />} />
               <Route path="/categories" element={<ProviderCategories />} />
               <Route

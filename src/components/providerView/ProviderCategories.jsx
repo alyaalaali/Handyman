@@ -15,10 +15,13 @@ const ProviderCategories = () => {
 
   return (
     <div className="provider-categories">
+
+
       <h2>My Categories</h2>
       {categories.length === 0 ? (
         <p>No categories found</p>
       ) : (
+       
         <ul className="category-list">
           {categories.map((category, index) => (
             <li key={index} className="category-item">
@@ -27,6 +30,7 @@ const ProviderCategories = () => {
           ))}
         </ul>
       )}
+      
     </div>
   )
 }
