@@ -28,34 +28,47 @@ const Login = ({ setUser }) => {
   }
 
   return (
-    <div className="col signin">
-      <form onSubmit={handleSubmit}>
-        <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={handleChange}
-            id="email"
-            type="email"
-            placeholder="example@example.com"
-            value={formValues.email}
-            required
-            autoComplete="email"
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={handleChange}
-            type="password"
-            id="password"
-            value={formValues.password}
-            required
-          />
-        </div>
-        <button disabled={!formValues.email || !formValues.password}>
-          Sign In
-        </button>
-      </form>
+    <div className="form">
+      <div className="form-bubble">
+        <h2>Sign In</h2>
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input
+              onChange={handleChange}
+              id="email"
+              type="email"
+              placeholder="example@example.com"
+              value={formValues.email}
+              required
+              autoComplete="email"
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label" htmlFor="password">
+              Password
+            </label>
+            <input
+              onChange={handleChange}
+              type="password"
+              id="password"
+              value={formValues.password}
+              required
+              className="form-input"
+            />
+          </div>
+          <button
+            className="form-button"
+            disabled={!formValues.email || !formValues.password}
+          >
+            Sign In
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
