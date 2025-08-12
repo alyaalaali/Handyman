@@ -64,128 +64,160 @@ const ProviderRegister = () => {
     .map((category) => category.name)
 
   return (
-    <div className="col register">
-      <h2>Register as a service provider!</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">name</label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Your Name"
-          value={formValues.name}
-          onChange={handleChange}
-          required
-        />
+    <div className="form">
+      <div className="form-bubble">
+        {" "}
+        <h2>Register as a service provider!</h2>
+        <div className="form-content">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label className="form-label" htmlFor="name">
+                name
+              </label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                value={formValues.name}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="CPR" className="form-label">
+                CPR Number
+              </label>
+              <input
+                type="text"
+                id="CPR"
+                placeholder="012345678"
+                value={formValues.CPR}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="contact">
+                Contact Number
+              </label>
+              <input
+                type="tel"
+                id="contact"
+                placeholder="+973 XXXX-XXXX"
+                value={formValues.contact}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="profession">
+                Profession
+              </label>
+              <input
+                type="text"
+                id="profession"
+                placeholder="Your profession"
+                value={formValues.profession}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="location">
+                Location
+              </label>
+              <input
+                type="text"
+                id="location"
+                placeholder="City or Address"
+                value={formValues.location}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+            </div>
 
-        <div className="input-wrapper">
-          <label htmlFor="CPR">CPR Number</label>
-          <input
-            type="text"
-            id="CPR"
-            placeholder="012345678"
-            value={formValues.CPR}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="contact">Contact Number</label>
-          <input
-            type="tel"
-            id="contact"
-            placeholder="+973 XXXX-XXXX"
-            value={formValues.contact}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="profession">Profession</label>
-          <input
-            type="text"
-            id="profession"
-            placeholder="Your profession"
-            value={formValues.profession}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            id="location"
-            placeholder="City or Address"
-            value={formValues.location}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="email">
+                Email
+              </label>
+              <input
+                onChange={handleChange}
+                id="email"
+                type="email"
+                placeholder="example@example.com"
+                value={formValues.email}
+                required
+                autoComplete="email"
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="password">
+                Password
+              </label>
+              <input
+                onChange={handleChange}
+                type="password"
+                id="password"
+                value={formValues.password}
+                required
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="confirmPassword">
+                Confirm Password
+              </label>
+              <input
+                onChange={handleChange}
+                type="password"
+                id="confirmPassword"
+                value={formValues.confirmPassword}
+                required
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <h3 className="form-label">Select Service Categories:</h3>
+              <div className="category-list">
+                {categories.map((category) => (
+                  <label key={category.id} className="category-item">
+                    <input
+                      type="checkbox"
+                      id={category.id}
+                      checked={category.checked}
+                      onChange={clickHandler}
+                      className="category-checkbox"
+                    />
+                    <span className="category-name">{category.name}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-        <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={handleChange}
-            id="email"
-            type="email"
-            placeholder="example@example.com"
-            value={formValues.email}
-            required
-            autoComplete="email"
-          />
+            <button
+              className="form-button"
+              disabled={
+                !formValues.email ||
+                !formValues.password ||
+                formValues.password !== formValues.confirmPassword ||
+                !formValues.location ||
+                !formValues.contact ||
+                !formValues.CPR ||
+                !formValues.name ||
+                !formValues.profession
+              }
+            >
+              Register
+            </button>
+          </form>
         </div>
-        <div className="input-wrapper">
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={handleChange}
-            type="password"
-            id="password"
-            value={formValues.password}
-            required
-          />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            onChange={handleChange}
-            type="password"
-            id="confirmPassword"
-            value={formValues.confirmPassword}
-            required
-          />
-        </div>
-        <div className="category-selection">
-          <h3>Select Service Categories:</h3>
-          <ul className="category-list">
-            {categories.map((category) => (
-              <li key={category.id}>
-                <label>
-                  <input
-                    type="checkbox"
-                    id={category.id}
-                    checked={category.checked}
-                    onChange={clickHandler}
-                  />
-                  {category.name}
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <button
-          disabled={
-            !formValues.email ||
-            (!formValues.password &&
-              formValues.password === formValues.confirmPassword) ||
-            !formValues.location ||
-            !formValues.contact ||
-            !formValues.CPR
-          }
-        >
-          Register
-        </button>
-      </form>
+      </div>
     </div>
   )
 }

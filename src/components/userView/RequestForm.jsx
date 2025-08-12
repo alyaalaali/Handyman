@@ -30,66 +30,76 @@ const RequestForm = ({ user }) => {
   }
 
   return (
-    <>
-      <div className="request-form">
-        <div>
-          <h2>Create Request</h2>
+    <div className="form request-form">
+      <div className="form-bubble">
+        <h2>Create Request</h2>
+        <div className="form-content">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="Category">Category </label>
+            <div className="form-group">
+              <label className="form-label" htmlFor="Category">
+                Category
+              </label>
 
-            <select
-              id="category"
-              onChange={handleChange}
-              value={formValues.category}
-              required
-            >
-              <option value=""></option>
-              <option value="plumbing">plumbing</option>
-              <option value="electrical">electrical</option>
-              <option value="painting">painting</option>
-              <option value="cleaning">cleaning</option>
-            </select>
-            <br />
-            <br />
-
-            <label htmlFor="title">Title</label>
-            <input
-              onChange={handleChange}
-              type="text"
-              id="title"
-              value={formValues.title}
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="description">Description</label>
-            <input
-              onChange={handleChange}
-              type="text"
-              id="description"
-              value={formValues.description}
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="pay">Pay</label>
-            <input
-              type="text"
-              onChange={handleChange}
-              id="pay"
-              value={formValues.pay}
-              required
-            />
-            <br />
-            <br />
-
-            <button type="submit">send</button>
+              <select
+                id="category"
+                onChange={handleChange}
+                value={formValues.category}
+                required
+                className="form-input"
+              >
+                <option value=""></option>
+                <option value="plumbing">plumbing</option>
+                <option value="electrical">electrical</option>
+                <option value="painting">painting</option>
+                <option value="cleaning">cleaning</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="title">
+                Title
+              </label>
+              <input
+                onChange={handleChange}
+                type="text"
+                id="title"
+                value={formValues.title}
+                required
+                className="form-input"
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="description">
+                Description
+              </label>
+              <input
+                className="form-input"
+                onChange={handleChange}
+                type="text"
+                id="description"
+                value={formValues.description}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="pay">
+                Pay
+              </label>
+              <input
+                type="text"
+                onChange={handleChange}
+                id="pay"
+                value={formValues.pay}
+                required
+                className="form-input"
+              />
+            </div>
+            <button className="form-button" type="submit">
+              send
+            </button>
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 export default RequestForm
