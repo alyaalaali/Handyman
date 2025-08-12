@@ -7,7 +7,7 @@ import Navbar from './components/NavBar'
 import Home from './components/Home'
 import Request from './components/userView/Request'
 import { CheckSession } from './services/Auth'
-import ProviderDashboard from './components/providerView/ProviderDashboard'
+
 import UserDashboard from './components/userView/UserDashboard'
 import ReviewForm from './components/userView/ReviewForm'
 import MyProfile from './components/providerView/MyProfile'
@@ -68,10 +68,6 @@ const App = () => {
           )}
           {user?.userType === 'provider' && (
             <>
-              <Route
-                path="/dashboard"
-                element={<ProviderDashboard user={user} />}
-              />
               <Route path="/profile/me" element={<MyProfile />} />
               <Route path="/categories" element={<ProviderCategories />} />
               <Route

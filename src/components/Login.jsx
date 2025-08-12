@@ -21,7 +21,7 @@ const Login = ({ setUser }) => {
     if (payload.userType === "user") {
       navigate("/dashboard")
     } else if (payload.userType === "provider") {
-      navigate("/dashboard")
+      navigate("/categories")
     } else {
       console.error("Unknown user type:", payload.userType)
     }
