@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
-import Client from "../../services/api"
+import { useParams, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Client from '../../services/api'
 
 const CategoryRequests = () => {
   const { categoryName } = useParams()
@@ -19,20 +19,21 @@ const CategoryRequests = () => {
 
   return (
     <div className="category-requests">
-      <h2>Requests for Category: {decodeURIComponent(categoryName)}</h2>
+      <h2>Requests for: {categoryName}</h2>
+
       {requests.length === 0 ? (
         <p>No active requests in this category</p>
       ) : (
         <ul className="request-list">
           {requests.map((request) => (
-            <li key={request._id} className="request-item">
-              <h3>{request.title}</h3>
+            <li key={request._id}>
+              <Link to={`/requests/${request._id}`}>
+                <h3>{request.title}</h3>
+              </Link>
               <p>{request.description}</p>
-              <p>Requested by: {request.userId?.email}</p>
-            
+              <p>By: {request.userId?.email}</p>
             </li>
           ))}
-          
         </ul>
       )}
     </div>

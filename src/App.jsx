@@ -14,6 +14,7 @@ import MyProfile from './components/providerView/MyProfile'
 import PublicProfile from './components/PublicProfile'
 import ProviderCategories from './components/providerView/ProviderCategories'
 import CategoryRequests from './components/providerView/CategoryRequests'
+import ProRequestDetails from './components/providerView/ProRequestDetials'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -69,6 +70,7 @@ const App = () => {
                 path="/categories/:categoryName"
                 element={<CategoryRequests />}
               />
+              <Route path="/requests/:id" element={<ProRequestDetails user={user}/>} />
             </>
           )}
         </Routes>

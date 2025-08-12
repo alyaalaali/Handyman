@@ -22,8 +22,7 @@ const ProviderCategories = () => {
         <ul className="category-list">
           {categories.map((category, index) => (
             <li key={index} className="category-item">
-              <Link to={`/categories/${encodeURIComponent(category)}`}></Link>
-              {category}
+              <Link to={`/categories/${category}`}>{category}</Link>
             </li>
           ))}
         </ul>
