@@ -16,6 +16,7 @@ import ProviderCategories from './components/providerView/ProviderCategories'
 import CategoryRequests from './components/providerView/CategoryRequests'
 import ProRequestDetails from './components/providerView/ProRequestDetials'
 import ApplicantsList from "./components/userView/ApplicantList"
+import ProviderProfile from "./components/userView/ProviderProfile"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -48,7 +49,8 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-          <Route path="/profile/:id" element={<PublicProfile />} />
+          <Route path="/profile/:id" element={<ProviderProfile />} />
+
           <Route
             path="/requests/:requestId/applicants"
             element={<ApplicantsList user={user} />}
