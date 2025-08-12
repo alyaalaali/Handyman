@@ -140,3 +140,29 @@
   color: #777;
   font-style: italic;
 }
+.back-btn {
+  background: none;
+  border: none;
+  color: #0066cc;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.35rem 0;
+  margin: 0;
+  height: fit-content;
+}
+
+.category {
+  background: #f3f3f3;
+  padding: 0.35rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  margin-left: auto;
+}
+
+.pay {
+  font-weight: 600;
+  color: #2a7f2a;
+  font-size: 1.1rem;
+  margin-right: auto;
+}

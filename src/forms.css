@@ -6,7 +6,10 @@
   padding: 1rem;
   padding-top: 80px;
 }
-
+.form.request-form {
+  padding-top: 30px;
+  min-height: 5px;
+}
 .form-bubble {
   width: 100%;
   max-width: 300px;

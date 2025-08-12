@@ -21,7 +21,6 @@ const ActiveRequests = () => {
       ) : (
         <div className="request-list">
           {activeRequests.map((request) => (
-            // <li key={request._id} className="request-item">
             <Link to={`/requests/${request._id}`} className="request-item">
               <img
                 src="/images/default-pfp.jpg"
