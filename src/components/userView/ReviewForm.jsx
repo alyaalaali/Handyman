@@ -1,56 +1,93 @@
 import { useParams } from "react-router-dom"
 import Client from "../../services/api"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const ReviewForm = ({ user }) => {
-  const {requestId} = useParams()
+  const { requestId } = useParams()
   const initialState = {
     rating: 1,
     description: "",
   }
+
   const [formValues, setFormValues] = useState(initialState)
-  console.log(formValues)
+  const [hasReviewed, setHasReviewed] = useState(false)
+  const [existingReview, setExistingReview] = useState({ rating: 1, description: ""})
+
+  // Fetch existing review on load
+  useEffect(() => {
+    const fetchReview = async () => {
+      try {
+        const response = await Client.get(`http://localhost:3000/review/user/${user.id}/request/${requestId}`)
+        if (response.data) {
+          setHasReviewed(true)
+          setExistingReview(response.data)
+        }
+      } catch (error) {
+        // If no review exists, this is expected — do nothing
+        console.log("No existing review found.")
+      }
+    }
+
+    if (user && requestId) {
+      fetchReview()
+    }
+  }, [user, requestId])
+
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
   const addReview = async (e) => {
+    e.preventDefault()
     try {
-      e.preventDefault()
       const response = await Client.post('http://localhost:3000/review/new', {
         ...formValues,
-        requestId
+        requestId,
+        userId: user.id
       })
-      console.log(response)
-    }
-    catch (error) {
-      console.log(error)
-    }
 
-    setFormValues(initialState)
+      setHasReviewed(true)
+      setExistingReview(response.data)
+      setFormValues(initialState)
+    } catch (error) {
+      console.log("Error submitting review:", error)
+    }
   }
 
   return (
     <>
       <h2>Rate Your Experience</h2>
-      <form onSubmit={addReview}>
-        <label>Rating</label>
-        <select name="rating" className="rating" onChange={handleChange}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <br />
 
-        <label>description</label>
-        <textarea onChange={handleChange} name="description"></textarea>
-        <br />
+      {!hasReviewed ? (
+        <form onSubmit={addReview}>
+          <label>Rating</label>
+          <select name="rating" className="rating" onChange={handleChange} value={formValues.rating}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <br />
 
-        <button >send</button>
-      </form>
+          <label>Description</label>
+          <textarea
+            name="description"
+            onChange={handleChange}
+            value={formValues.description}
+          ></textarea>
+          <br />
+
+          <button type="submit">Send</button>
+        </form>
+      ) : (
+        <div>
+          <p><strong>Your Rating:</strong> {existingReview.rating}</p>
+          <p><strong>Your Review:</strong> {existingReview.description}</p>
+        </div>
+      )}
     </>
   )
 }
+
 export default ReviewForm
