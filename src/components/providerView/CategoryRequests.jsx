@@ -32,6 +32,7 @@ const CategoryRequests = () => {
             
             </li>
           ))}
+          
         </ul>
       )}
     </div>
