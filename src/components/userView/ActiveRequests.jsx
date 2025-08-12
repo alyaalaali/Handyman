@@ -14,22 +14,33 @@ const ActiveRequests = () => {
   }, [])
 
   return (
-    <div className="active-requests">
+    <div className="request-container">
       <h2>Active Requests</h2>
       {activeRequests.length === 0 ? (
-        <p>No active requests found</p>
+        <p className="no-requests">No active requests found</p>
       ) : (
-        <ul className="requestlist">
+        <div className="request-list">
           {activeRequests.map((request) => (
-            <Link to={`/requests/${request._id}`} className="request-link">
-              <li key={request._id} className="request-item">
-                <h3>{request.title}</h3>
-                <p>Description: {request.description}</p>
-                <p>{new Date(request.createdAt).toLocaleDateString()}</p>
-              </li>
+            // <li key={request._id} className="request-item">
+            <Link to={`/requests/${request._id}`} className="request-item">
+              <img
+                src="/images/default-pfp.jpg"
+                alt="Profile"
+                className="request-pfp"
+              />
+              <div className="request-content">
+                <div className="request-header">
+                  <h3 className="request-title">{request.title}</h3>
+                  <span className="request-date">
+                    <p>{new Date(request.createdAt).toLocaleDateString()}</p>
+                  </span>
+                </div>
+
+                <p className="request-description">{request.description}</p>
+              </div>
             </Link>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   )

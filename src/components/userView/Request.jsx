@@ -11,13 +11,18 @@ const Request = ({ user }) => {
     <>
       <SideBar />
       <div>
-        <Routes>
-          <Route path="/new" element={<RequestForm user={user} />} />
-          <Route path="/active" element={<ActiveRequests />} />
-          <Route path="/completed" element={<CompletedRequests />} />
-          <Route path="/:requestId" element={<RequestDetails />} />
-          <Route path="/:requestId/review/new" element={<ReviewForm user={user}/>} />
-        </Routes>
+        <main className="main-content">
+          <Routes>
+            <Route path="/new" element={<RequestForm user={user} />} />
+            <Route path="/active" element={<ActiveRequests />} />
+            <Route path="/completed" element={<CompletedRequests />} />
+            <Route path="/:requestId" element={<RequestDetails />} />
+            <Route
+              path="/:requestId/review/new"
+              element={<ReviewForm user={user} />}
+            />
+          </Routes>
+        </main>
       </div>
     </>
   )
