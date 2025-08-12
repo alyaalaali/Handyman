@@ -15,6 +15,7 @@ import PublicProfile from './components/PublicProfile'
 import ProviderCategories from './components/providerView/ProviderCategories'
 import CategoryRequests from './components/providerView/CategoryRequests'
 import ProRequestDetails from './components/providerView/ProRequestDetials'
+import ApplicantsList from "./components/userView/ApplicantList"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -48,6 +49,10 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile/:id" element={<PublicProfile />} />
+          <Route
+            path="/requests/:requestId/applicants"
+            element={<ApplicantsList user={user} />}
+          />
 
           {user && (
             <>
