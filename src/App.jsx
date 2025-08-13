@@ -1,4 +1,5 @@
 import "./App.css"
+import "./forms.css"
 import { use, useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom"
 import Login from "./components/Login"
@@ -7,12 +8,15 @@ import Navbar from "./components/NavBar"
 import Home from "./components/Home"
 import Request from "./components/userView/Request"
 import { CheckSession } from "./services/Auth"
-import ProviderDashboard from "./components/providerView/ProviderDashboard"
 import UserDashboard from "./components/userView/UserDashboard"
-import ReviewForm from "./components/userView/ReviewForm"
 import MyProfile from "./components/providerView/MyProfile"
-import PublicProfile from "./components/PublicProfile"
+import ProviderCategories from "./components/providerView/ProviderCategories"
+import CategoryRequests from "./components/providerView/CategoryRequests"
+import ProRequestDetails from "./components/providerView/ProRequestDetials"
 import ApplicantsList from "./components/userView/ApplicantList"
+import ProviderProfile from "./components/userView/ProviderProfile"
+import ProviderApplications from "./components/providerView/ProviderApplications"
+
 const App = () => {
   const [user, setUser] = useState(null)
   const checkToken = async () => {
@@ -44,7 +48,8 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
-          <Route path="/profile/:id" element={<PublicProfile />} />
+          <Route path="/profile/:id" element={<ProviderProfile />} />
+
           <Route
             path="/requests/:requestId/applicants"
             element={<ApplicantsList user={user} />}
@@ -61,11 +66,21 @@ const App = () => {
           )}
           {user?.userType === "provider" && (
             <>
-              <Route
-                path="/dashboard"
-                element={<ProviderDashboard user={user} />}
-              />
               <Route path="/profile/me" element={<MyProfile />} />
+              <Route path="/categories" element={<ProviderCategories />} />
+              <Route
+                path="/categories/:categoryName"
+                element={<CategoryRequests />}
+              />
+              <Route
+                path="/requests/:id"
+                element={<ProRequestDetails user={user} />}
+              />
+
+              <Route
+                path="/applications"
+                element={<ProviderApplications user={user} />}
+              />
             </>
           )}
         </Routes>

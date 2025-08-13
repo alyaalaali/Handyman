@@ -54,26 +54,73 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
     setRequest(response.data)
   }
 
-  if (!request) return <div>Loading...</div>
+  if (!request) return <div className="loading">Loading...</div>
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)}>Back</button>
+    <div className="form request-form">
+      <div className="form-bubble">
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          Back
+        </button>
+        <span className="category">{request.category}</span>
+        <span className="pay">${request.pay}</span>
+        <div className="request-header">
+          <h2>{request.title}</h2>
+          <div className="title-info"></div>
+        </div>
+        <div className="request-body">
+          <div className="form-group">
+            <h3>Description</h3>
+            <p>{request.description}</p>
+          </div>
+          <div className="form-group">
+            <h3 className="form-label">Posted By</h3>
+            <div className="user-info">
+              <p>{request.userId.name}</p>
+              <p>{request.userId.email}</p>
+            </div>
+          </div>
+          <div className="form-group">
+            <h3 className="form-label">Posted On</h3>
+            <p>{new Date(request.createdAt).toLocaleDateString()}</p>
+          </div>
+        </div>
 
-      <h2>{request.title}</h2>
-      <div>
-        <p>{request.category}</p>
-        <p>${request.pay}</p>
-      </div>
+        <div className="request-actions">
+          {request.status === "active" &&
+            (request.providerId ? (
+              <Link to={`/requests/${requestId}/applicants`}>
+                {/* change this link to include a link to the provider's profile */}
+                <button className="form-button">Contact Provider</button>
+              </Link>
+            ) : (
+              <Link to={`/requests/${requestId}/applicants`}>
+                <button className="form-button">
+                  View Applicants ({request.appliedBy?.length || 0})
+                </button>
+              </Link>
+            ))}
 
-      <div>
-        <h3>Description</h3>
-        <p>{request.description}</p>
+          {!request.providerId && (
+            <button className="form-button delete-btn" onClick={handleDelete}>
+              Delete
+            </button>
+          )}
 
-        <h3>Posted By</h3>
-        <div>
-          <p>{request.userId.name}</p>
-          <p>{request.userId.email}</p>
+          {request.status === "active" ? (
+            request.providerId && (
+              <button
+                className="form-button complete-btn"
+                onClick={handleMarkComplete}
+              >
+                Mark as complete
+              </button>
+            )
+          ) : (
+            <Link to={`/requests/${request._id}/review/new`}>
+              <button className="form-button">Review</button>
+            </Link>
+          )}
         </div>
 
         <h3>Posted On</h3>
@@ -100,6 +147,7 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
        
 
           )}
+
 
       </div>
     </div>

@@ -12,20 +12,38 @@ const Register = () => {
   }
   if (userType) {
     return (
-      <div>{userType === "user" ? <UserRegister /> : <ProviderRegister />}</div>
+      <div className="register-container">
+        {userType === "user" ? <UserRegister /> : <ProviderRegister />}
+      </div>
     )
   }
 
   return (
-    <div>
-      <h2>Join us as:</h2>
-      <button onClick={() => handleSelection("user")}>User</button>
-      <button onClick={() => handleSelection("provider")}>
-        Service Provider
-      </button>
-      <p onClick={() => navigate("/login")}>
-        already have an account? Login here!
-      </p>
+    <div className="register-page">
+      <div className="selection-box">
+        <h2>Join us as:</h2>
+        <div className="button-group">
+          <button
+            className="btn user-type"
+            onClick={() => handleSelection("user")}
+          >
+            User
+          </button>
+          <button
+            className="btn user-type"
+            onClick={() => handleSelection("provider")}
+          >
+            Service Provider
+          </button>
+        </div>
+
+        <p className="login-text">
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")} className="login-link">
+            Login here
+          </span>
+        </p>
+      </div>
     </div>
   )
 }
