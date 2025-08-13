@@ -20,8 +20,8 @@ const Navbar = ({ user, handleLogOut }) => {
   if (user?.userType === "provider") {
     userOptions = (
       <div className="nav-links">
-        <Link className="nav-link" to="/dashboard">
-          Provider Dashboard
+        <Link className="nav-link" to="/categories">
+          Categories
         </Link>
         <Link className="nav-link" to="/applications">
           Applications
