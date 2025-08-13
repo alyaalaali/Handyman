@@ -46,7 +46,7 @@ const ProRequestDetails = ({ user }) => {
         <strong>Requested by:</strong> {request.userId?.email}
       </p>
 
-      <p>
+      <p className="description">
         <strong>Description:</strong> {request.description}
       </p>
 
