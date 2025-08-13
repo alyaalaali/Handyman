@@ -28,9 +28,9 @@ const CategoryRequests = () => {
           {requests.map((request) => (
             <li key={request._id}>
               <Link to={`/requests/${request._id}`}>
-                <h3>{request.title}</h3>
+                <h3> {request.title}</h3>
               </Link>
-              <p>{request.description}</p>
+              <p>{request.pay}BHD</p>
               <p>By: {request.userId?.email}</p>
             </li>
           ))}
