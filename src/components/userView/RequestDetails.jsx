@@ -7,14 +7,14 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
   const navigate = useNavigate()
   const [request, setRequest] = useState(null)
 
-
   useEffect(() => {
-
     const fetchReview = async () => {
       try {
-      console.log("fetch review")
-        
-        const response = await Client.get(`http://localhost:3000/review/${requestId}`)
+        console.log("fetch review")
+
+        const response = await Client.get(
+          `http://localhost:3000/review/${requestId}`
+        )
         console.log("response", response.data)
         if (response.data) {
           setHasReviewed(true)
@@ -24,7 +24,7 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
         console.log("No existing review found.")
       }
     }
-    
+
     const getRequestDetails = async () => {
       const response = await Client.get(`${BASE_URL}/request/${requestId}`)
       console.log(response.data)
@@ -35,12 +35,8 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
       }
     }
 
-    
-
     getRequestDetails()
   }, [requestId])
-
-
 
   const handleDelete = async () => {
     await Client.delete(`${BASE_URL}/request/${requestId}`)
@@ -59,7 +55,10 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
   return (
     <div className="form request-form">
       <div className="form-bubble">
-        <button className="back-btn" onClick={() => navigate(-1)}>
+        <button
+          className="back-btn"
+          onClick={() => navigate(`/requests/${request.status}`)}
+        >
           Back
         </button>
         <span className="category">{request.category}</span>
@@ -122,33 +121,6 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
             </Link>
           )}
         </div>
-
-        <h3>Posted On</h3>
-        <p>{new Date(request.createdAt).toLocaleDateString()}</p>
-        {request.status === "active" && (
-          <Link to={`/requests/${requestId}/applicants`}>
-            <button>View Applicants ({request.appliedBy?.length || 0})</button>
-          </Link>
-        )}
-        <button onClick={handleDelete}>Delete</button>
-
-        {request.status === "active" ? (
-          <button onClick={handleMarkComplete}>Mark as complete</button>
-        ) : (
-          <>
-          { hasReviewed ? (null) : (
-            <Link to={`/requests/${request._id}/review/new`}>
-            <button>Review</button>
-          </Link>
-
-          ) }
-
-          </>
-       
-
-          )}
-
-
       </div>
     </div>
   )
