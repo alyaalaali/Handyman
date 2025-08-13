@@ -16,7 +16,7 @@ const ProRequestDetails = ({ user }) => {
       }
       setRequest(response.data)
     }
-    console.log('On mount')
+    
     getRequest()
   }, [apply])
 
@@ -40,7 +40,7 @@ const ProRequestDetails = ({ user }) => {
         <strong>Title:</strong> {request.title}
       </p>
       <p>
-        <strong>pay:</strong> {request.pay}
+        <strong>pay:</strong> {request.pay} BHD
       </p>
      
       <p>

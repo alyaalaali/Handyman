@@ -1,3 +1,98 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  }
+.home-container {
+  background: white;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+.home-container img {
+  max-width: 200px;
+  margin-bottom: 25px;
+}
+.home-container p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #444;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.home-categories {
+  background: white;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+.home-categories-2 {
+  display: flex;
+  justify-content: center;    
+  gap: 20px;                   
+  flex-wrap: wrap;             
+  padding: 40px 20px;
+  
+}
+.one-category {
+  background: white;
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.one-category img {
+  width: 150px ;
+  height: 150px;
+}
+
+.connect-us {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0A7AAA; /* The blue color */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: relative;
+  top: 300px;
+}
+
+.connect-us p {
+  margin: 12px 0;
+}
+.connect-us strong {
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .home-container, .connect-us {
+    margin: 20px 15px;
+    padding: 20px 15px;
+  }
+  nav {
+    justify-content: center;
+  }
+} 
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -230,10 +325,12 @@
 }
 
 .category-requests h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
+
+
 
 .request-list {
   list-style: none;
@@ -340,9 +437,9 @@
 }
 
 .provider-applications h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+ font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .application-list {
@@ -382,6 +479,7 @@
 .application-list p strong {
   color: #333;
 }
+
 
 /* review */
 .rating-stars {
