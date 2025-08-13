@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom"
 import Client from "../../services/api"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
-const ReviewForm = ({ user }) => {
+const ReviewForm = ({ user, hasReviewed, setHasReviewed}) => {
   const { requestId } = useParams()
   const initialState = {
     rating: 1,
@@ -10,6 +11,7 @@ const ReviewForm = ({ user }) => {
   }
 
   const [formValues, setFormValues] = useState(initialState)
+
   const [hasReviewed, setHasReviewed] = useState(false)
   const [existingReview, setExistingReview] = useState({
     rating: 1,
@@ -64,6 +66,16 @@ const ReviewForm = ({ user }) => {
       <div className="form-bubble">
         <h2>Rate Your Experience</h2>
 
+          <button type="submit">Send</button>
+        </form>
+      ) : (
+        <>
+        <Link to={`/requests/${requestId}`}>
+        <button>Back</button>
+        </Link>
+        </>
+      )}
+    </>
         {!hasReviewed ? (
           <form onSubmit={addReview} className="form-content">
             <div className="form-group">
