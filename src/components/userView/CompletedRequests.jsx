@@ -13,22 +13,37 @@ const CompletedRequests = () => {
   }, [])
 
   return (
-    <div className="active-requests">
+    <div className="request-container">
       <h2>Completed Requests</h2>
       {CompletedRequests.length === 0 ? (
-        <p>No completed requests found</p>
+        <p className="no-requests">No completed requests found</p>
       ) : (
-        <ul className="requestlist">
+        <div className="request-list">
           {CompletedRequests.map((request) => (
-            <Link key={request._id} to={`/requests/${request._id}`} className="request-link">
-              <li className="request-item">
-                <h3>{request.title}</h3>
+            <Link
+              key={request._id}
+              to={`/requests/${request._id}`}
+              className="request-item"
+            >
+              <img
+                src="/images/default-pfp.jpg"
+                alt="Profile"
+                className="request-pfp"
+              />
+
+              <div className="request-content">
+                <div className="request-header">
+                  <h3 className="request-title">{request.title}</h3>
+                  <span className="request-date">
+                    {new Date(request.createdAt).toLocaleDateString()}
+                  </span>{" "}
+                </div>
+
                 <p>Description: {request.description}</p>
-                <p>{new Date(request.createdAt).toLocaleDateString()}</p>
-              </li>
+              </div>
             </Link>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   )

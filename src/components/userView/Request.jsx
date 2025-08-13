@@ -14,13 +14,17 @@ const Request = ({ user }) => {
     <>
       <SideBar />
       <div>
-        <Routes>
+
+        <main className="main-content">
+          <Routes>
           <Route path="/new" element={<RequestForm user={user} />} />
           <Route path="/active" element={<ActiveRequests />} />
           <Route path="/completed" element={<CompletedRequests />} />
           <Route path="/:requestId" element={<RequestDetails hasReviewed={hasReviewed} setHasReviewed={setHasReviewed} user={user}/>} />
-          <Route path="/:requestId/review/new" element={<ReviewForm user={user} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}/>} />
-        </Routes>
+           <Route path="/:requestId/review/new" element={<ReviewForm user={user} hasReviewed={hasReviewed} setHasReviewed={setHasReviewed}/>} />
+
+          </Routes>
+        </main>
       </div>
     </>
   )

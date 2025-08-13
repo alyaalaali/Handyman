@@ -4,36 +4,52 @@ const Navbar = ({ user, handleLogOut }) => {
 
   if (user?.userType === "user") {
     userOptions = (
-      <nav>
-        <Link to="/dashboard">User Dashboard</Link>
-        <Link to="/requests">Requests</Link>
-        <Link to="/login" onClick={handleLogOut}>
+      <div className="nav-links">
+        <Link className="nav-link" to="/dashboard">
+          User Dashboard
+        </Link>
+        <Link className="nav-link" to="/requests">
+          Requests
+        </Link>
+        <Link className="nav-link" to="/login" onClick={handleLogOut}>
           logout
         </Link>
-      </nav>
+      </div>
     )
   }
   if (user?.userType === "provider") {
     userOptions = (
-      <nav>
-        <Link to="/dashboard">Provider Dashboard</Link>
-        <Link to="/applications">Applications</Link>
-        <Link to="/login" onClick={handleLogOut}>
+      <div className="nav-links">
+        <Link className="nav-link" to="/categories">
+          Categories
+        </Link>
+        <Link className="nav-link" to="/applications">
+          Applications
+        </Link>
+        <Link className="nav-link" to="/login" onClick={handleLogOut}>
           logout
         </Link>
-        <Link to="/profile/me">Profile</Link>
-      </nav>
+        <Link className="nav-link" to="/profile/me">
+          Profile
+        </Link>
+      </div>
     )
   }
 
   const publicOptions = (
-    <nav>
-      <Link to="/">home</Link>
-      <Link to="/login">login</Link>
-      <Link to="/register">Register</Link>
-    </nav>
+    <div className="nav-links">
+      <Link className="nav-link" to="/">
+        home
+      </Link>
+      <Link className="nav-link" to="/login">
+        login
+      </Link>
+      <Link className="nav-link" to="/register">
+        Register
+      </Link>
+    </div>
   )
 
-  return <nav>{user ? userOptions : publicOptions}</nav>
+  return <nav className="navbar">{user ? userOptions : publicOptions}</nav>
 }
 export default Navbar
