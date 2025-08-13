@@ -23,6 +23,7 @@ const RequestForm = ({ user }) => {
     e.preventDefault()
     const response = await Client.post(`${BASE_URL}/request/new`, {
       ...formValues,
+      userId: user.id,
     })
 
     setFormValues(initialState)

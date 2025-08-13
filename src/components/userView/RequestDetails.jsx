@@ -1,19 +1,38 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Client, { BASE_URL } from "../../services/api"
-import { Link } from "react-router-dom"
-import ReviewForm from "./ReviewForm"
 
-const RequestDetails = () => {
+const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
   const { requestId } = useParams()
   const navigate = useNavigate()
   const [request, setRequest] = useState(null)
 
   useEffect(() => {
+    const fetchReview = async () => {
+      try {
+        console.log("fetch review")
+
+        const response = await Client.get(
+          `http://localhost:3000/review/${requestId}`
+        )
+        console.log("response", response.data)
+        if (response.data) {
+          setHasReviewed(true)
+          setExistingReview(response.data)
+        }
+      } catch (error) {
+        console.log("No existing review found.")
+      }
+    }
+
     const getRequestDetails = async () => {
       const response = await Client.get(`${BASE_URL}/request/${requestId}`)
       console.log(response.data)
       setRequest(response.data)
+
+      if (user && requestId) {
+        fetchReview()
+      }
     }
 
     getRequestDetails()
@@ -36,7 +55,10 @@ const RequestDetails = () => {
   return (
     <div className="form request-form">
       <div className="form-bubble">
-        <button className="back-btn" onClick={() => navigate(-1)}>
+        <button
+          className="back-btn"
+          onClick={() => navigate(`/requests/${request.status}`)}
+        >
           Back
         </button>
         <span className="category">{request.category}</span>
