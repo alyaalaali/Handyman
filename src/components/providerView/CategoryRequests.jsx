@@ -17,9 +17,11 @@ const CategoryRequests = () => {
     getRequests()
   }, [categoryName])
 
+  let categoryNameToUpper = categoryName.charAt(0).toUpperCase()+ categoryName.slice(1)
+
   return (
     <div className="category-requests">
-      <h2>Requests for: {categoryName}</h2>
+      <h2>{categoryNameToUpper} Requests</h2>
 
       {requests.length === 0 ? (
         <p>No active requests in this category</p>

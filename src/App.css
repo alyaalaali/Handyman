@@ -230,10 +230,12 @@
 }
 
 .category-requests h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
+
+
 
 .request-list {
   list-style: none;
@@ -340,9 +342,9 @@
 }
 
 .provider-applications h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+ font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .application-list {
@@ -382,6 +384,7 @@
 .application-list p strong {
   color: #333;
 }
+
 
 /* review */
 .rating-stars {
