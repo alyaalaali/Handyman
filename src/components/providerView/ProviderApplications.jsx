@@ -31,9 +31,15 @@ const ProviderApplications = ({ user }) => {
                 <h3>{request.title}</h3>
               </Link>
               <p>{request.description}</p>
-              <p><strong>Category:</strong> {request.category}</p>
-              <p><strong>Pay:</strong> {request.pay}</p>
-              <p><strong>Requested by:</strong> {request.userId?.email}</p>
+              <p>
+                <strong>Category:</strong> {request.category}
+              </p>
+              <p>
+                <strong>Pay:</strong> {request.pay}
+              </p>
+              <p>
+                <strong>Requested by:</strong> {request.userId?.name}
+              </p>
             </li>
           ))}
         </ul>
