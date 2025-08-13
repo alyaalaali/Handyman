@@ -27,11 +27,14 @@ const CategoryRequests = () => {
         <ul className="request-list">
           {requests.map((request) => (
             <li key={request._id}>
-              <Link to={`/requests/${request._id}`}>
-                <h3> {request.title}</h3>
+              <Link to={`/requests/${request._id}`} className="request-link">
+                <div>
+                  <h3> {request.title}</h3>
+
+                  <p>{request.pay}BHD</p>
+                  <p>By: {request.userId?.email}</p>
+                </div>
               </Link>
-              <p>{request.pay}BHD</p>
-              <p>By: {request.userId?.email}</p>
             </li>
           ))}
         </ul>
