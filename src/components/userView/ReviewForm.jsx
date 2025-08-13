@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom"
 import Client from "../../services/api"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
-const ReviewForm = ({ user }) => {
+const ReviewForm = ({ user, hasReviewed, setHasReviewed}) => {
   const { requestId } = useParams()
   const initialState = {
     rating: 1,
@@ -10,28 +11,8 @@ const ReviewForm = ({ user }) => {
   }
 
   const [formValues, setFormValues] = useState(initialState)
-  const [hasReviewed, setHasReviewed] = useState(false)
   const [existingReview, setExistingReview] = useState({ rating: 1, description: ""})
 
-  // Fetch existing review on load
-  useEffect(() => {
-    const fetchReview = async () => {
-      try {
-        const response = await Client.get(`http://localhost:3000/review/user/${user.id}/request/${requestId}`)
-        if (response.data) {
-          setHasReviewed(true)
-          setExistingReview(response.data)
-        }
-      } catch (error) {
-        // If no review exists, this is expected — do nothing
-        console.log("No existing review found.")
-      }
-    }
-
-    if (user && requestId) {
-      fetchReview()
-    }
-  }, [user, requestId])
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -81,10 +62,16 @@ const ReviewForm = ({ user }) => {
           <button type="submit">Send</button>
         </form>
       ) : (
+        <>
         <div>
           <p><strong>Your Rating:</strong> {existingReview.rating}</p>
           <p><strong>Your Review:</strong> {existingReview.description}</p>
         </div>
+
+        <Link to={`/requests/${requestId}`}>
+        <button>Back</button>
+        </Link>
+        </>
       )}
     </>
   )
