@@ -1,17 +1,17 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { RegisterUser } from "../services/Auth"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { RegisterUser } from '../services/Auth'
 
 const UserRegister = () => {
   let navigate = useNavigate()
 
   const initialState = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    location: "",
-    contact: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    location: '',
+    contact: ''
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -27,11 +27,11 @@ const UserRegister = () => {
       email: formValues.email,
       password: formValues.password,
       location: formValues.location,
-      contact: formValues.contact,
+      contact: formValues.contact
     })
 
     setFormValues(initialState)
-    navigate("/login")
+    navigate('/login')
   }
 
   return (
@@ -78,6 +78,8 @@ const UserRegister = () => {
                 onChange={handleChange}
                 type="password"
                 id="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 value={formValues.password}
                 required
                 className="form-input"

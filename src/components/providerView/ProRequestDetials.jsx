@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Client from '../../services/api'
 
-
 const ProRequestDetails = ({ user }) => {
   const { id } = useParams()
   const [request, setRequest] = useState(null)
@@ -11,26 +10,24 @@ const ProRequestDetails = ({ user }) => {
   useEffect(() => {
     const getRequest = async () => {
       const response = await Client.get(`/provider/requests/${id}`)
-  const providerId = user.id
-      if( response.data.appliedBy.includes(providerId)) {
+      const providerId = user.id
+      if (response.data.appliedBy.includes(providerId)) {
         setApply(true)
       }
       setRequest(response.data)
     }
-console.log("On mount")
+    console.log('On mount')
     getRequest()
   }, [apply])
 
   const handleApply = async () => {
     await Client.post(`/provider/requests/${id}/apply`)
-            setApply(true)
-
+    setApply(true)
   }
 
   const handleWithdraw = async () => {
     await Client.delete(`/provider/requests/${id}/apply`)
-            setApply(false)
-
+    setApply(false)
   }
 
   if (!request) return <p>Loading request details...</p>
@@ -38,11 +35,9 @@ console.log("On mount")
   return (
     <div className="request-details">
       <h2>{request.title}</h2>
+
       <p>
-        <strong>Description:</strong> {request.description}
-      </p>
-      <p>
-        <strong>Category:</strong> {request.category}
+        <strong>Title:</strong> {request.title}
       </p>
       <p>
         <strong>pay:</strong> {request.pay}
@@ -51,12 +46,15 @@ console.log("On mount")
         <strong>Requested by:</strong> {request.userId?.email}
       </p>
 
+      <p className="description">
+        <strong>Description:</strong> {request.description}
+      </p>
 
-     {apply ?  ( <button onClick={handleWithdraw}>Withdraw</button>
-
-    ):(
-      <button onClick={handleApply}>Apply</button>
-    )}
+      {apply ? (
+        <button onClick={handleWithdraw}>Withdraw</button>
+      ) : (
+        <button onClick={handleApply}>Apply</button>
+      )}
     </div>
   )
 }
