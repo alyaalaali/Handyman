@@ -33,13 +33,34 @@ const MyProfile = () => {
       <h2>My Profile</h2>
 
       {!edit ? (
-        <div>
-          <p>Name: {profile.name}</p>
-          <p>Email: {profile.email}</p>
-          <p>Contact: {profile.contact}</p>
-          <p>Location: {profile.location}</p>
-          <p>Profession: {profile.profession}</p>
-          <button onClick={() => setEdit(true)}>Edit</button>
+        <div className="profile-container">
+          <div className="profile-header">
+            <img
+              src="/images/default-pfp.jpg"
+              alt={`${profile.name}'s profile`}
+              className="profile-image"
+            />
+            <div className="name-and-edit">
+              <h2>{profile.name}'s Profile</h2>
+              <button className="edit-button" onClick={() => setEdit(true)}>
+                Edit
+              </button>
+            </div>
+          </div>
+          <div className="profile-details">
+            <div className="detail-item">
+              <span className="detail-label">Profession:</span>
+              <span className="detail-value">{profile.profession}</span>
+            </div>
+            <div className="detail-item">
+              <span className="detail-label">Contact:</span>
+              <span className="detail-value">{profile.contact}</span>
+            </div>
+            <div className="detail-item">
+              <span className="detail-label">Location:</span>
+              <span className="detail-value">{profile.location}</span>
+            </div>
+          </div>
         </div>
       ) : (
         <form onSubmit={handleSave}>
