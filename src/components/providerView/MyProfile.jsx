@@ -61,6 +61,7 @@ const MyProfile = () => {
               <span className="detail-value">{profile.location}</span>
             </div>
           </div>
+          {profile._id && <Reviews providerId={profile._id} />}
         </div>
       ) : (
         <form onSubmit={handleSave}>
@@ -82,7 +83,6 @@ const MyProfile = () => {
           </button>
         </form>
       )}
-      {profile._id && <Reviews providerId={profile._id} />}
     </div>
   )
 }
