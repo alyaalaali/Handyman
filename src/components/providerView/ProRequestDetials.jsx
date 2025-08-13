@@ -42,8 +42,9 @@ const ProRequestDetails = ({ user }) => {
       <p>
         <strong>pay:</strong> {request.pay}
       </p>
+     
       <p>
-        <strong>Requested by:</strong> {request.userId?.email}
+         <strong>Requested by:</strong> {request.userId?.email}
       </p>
 
       <p className="description">
