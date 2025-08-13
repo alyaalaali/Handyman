@@ -27,14 +27,14 @@ const ProviderApplications = ({ user }) => {
         <ul className="application-list">
           {applications.map((request) => (
             <li key={request._id}>
-              <Link to={`/requests/${request._id}`} className='request-link'>
+              <Link to={`/requests/${request._id}`} className="request-link">
                 <h3>{request.title}</h3>
 
                 <p>
                   <strong>Category:</strong> {request.category}
                 </p>
                 <p>
-                  <strong>Pay:</strong> {request.pay}
+                  <strong>Pay:</strong> {request.pay} BHD
                 </p>
                 <p>
                   <strong>Requested by:</strong> {request.userId?.email}

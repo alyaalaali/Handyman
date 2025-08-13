@@ -199,7 +199,7 @@
 
 .category-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .category-link {
@@ -229,10 +229,12 @@
 }
 
 .category-requests h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
+
+
 
 .request-list {
   list-style: none;
@@ -277,12 +279,11 @@
   color: inherit;
 }
 
-
 /* Request Details */
 .request-details {
   padding: 2rem;
   max-width: 800px;
-  margin: 4rem auto; 
+  margin: 4rem auto;
   background: white;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -303,7 +304,7 @@
 }
 
 .request-details p.description {
-  min-height: 120px; 
+  min-height: 120px;
   white-space: pre-wrap;
   background: #f9f9f9;
   padding: 1rem;
@@ -382,4 +383,3 @@
 .application-list p strong {
   color: #333;
 }
-
