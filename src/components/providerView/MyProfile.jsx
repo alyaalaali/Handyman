@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react"
 import Client from "../../services/api"
 import { BASE_URL } from "../../services/api"
+import Reviews from "../Reviews"
 
 const MyProfile = () => {
   const [profile, setProfile] = useState(null)
   const [edit, setEdit] = useState(false)
   useEffect(() => {
-    const fetchProfile = async () => {
+    const getProfile = async () => {
       const { data } = await Client.get(`${BASE_URL}/provider/profile/me`)
       setProfile(data)
     }
-    fetchProfile()
+    getProfile()
   }, [])
 
   const handleChange = (e) => {
@@ -60,6 +61,7 @@ const MyProfile = () => {
           </button>
         </form>
       )}
+      {profile._id && <Reviews providerId={profile._id} />}
     </div>
   )
 }

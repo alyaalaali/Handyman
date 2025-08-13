@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Client from "../../services/api"
-
+import Reviews from "../Reviews"
 const ProviderProfile = () => {
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
@@ -32,6 +32,7 @@ const ProviderProfile = () => {
           <strong>Location:</strong> {profile.location}
         </p>
       </div>
+      <Reviews providerId={id} />
     </div>
   )
 }
