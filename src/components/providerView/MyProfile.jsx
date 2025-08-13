@@ -64,24 +64,71 @@ const MyProfile = () => {
           {profile._id && <Reviews providerId={profile._id} />}
         </div>
       ) : (
-        <form onSubmit={handleSave}>
-          <input id="name" value={profile.name} onChange={handleChange} />
-          <input id="contact" value={profile.contact} onChange={handleChange} />
-          <input
-            id="location"
-            value={profile.location}
-            onChange={handleChange}
-          />
-          <input
-            id="profession"
-            value={profile.profession}
-            onChange={handleChange}
-          />
-          <button type="submit">Save</button>
-          <button type="button" onClick={() => setEdit(false)}>
+        <div className="form">
+          <button
+            className="cancel-button"
+            type="button"
+            onClick={() => setEdit(false)}
+          >
             Cancel
           </button>
-        </form>
+          <div className="form-bubble">
+            <h2>Edit Profile</h2>
+
+            <form onSubmit={handleSave}>
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">
+                  Email
+                </label>
+
+                <input
+                  id="name"
+                  value={profile.name}
+                  onChange={handleChange}
+                  className="form-input"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="contact" className="form-label">
+                  Contact
+                </label>
+
+                <input
+                  className="form-input"
+                  id="contact"
+                  value={profile.contact}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="location" className="form-label">
+                  Location
+                </label>
+                <input
+                  className="form-input"
+                  id="location"
+                  value={profile.location}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="profession" className="form-label">
+                  Profession
+                </label>
+                <input
+                  className="form-input"
+                  id="profession"
+                  value={profile.profession}
+                  onChange={handleChange}
+                />
+              </div>
+              <button className="form-button" type="submit">
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   )
