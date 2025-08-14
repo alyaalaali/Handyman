@@ -238,7 +238,7 @@ body {
 .back-btn {
   background: none;
   border: none;
-  color: #0066cc;
+  color: #4dade9;
   cursor: pointer;
   font-size: 1rem;
   padding: 0.35rem 0;
@@ -428,7 +428,7 @@ body {
 .request-details button {
   margin-top: 2rem;
   padding: 0.6rem 1.5rem;
-  background-color: #0066cc;
+  background-color: #4dade9;
   color: white;
   border: none;
   border-radius: 6px;
@@ -438,7 +438,7 @@ body {
 }
 
 .request-details button:hover {
-  background-color: #004999;
+  background-color: #4dade9;
 }
 
 /* Provider Applications */
@@ -526,7 +526,7 @@ a {
 .accept-button {
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #4caf50;
+  background-color: #4dade9;
   color: white;
   border: none;
   border-radius: 4px;
@@ -551,8 +551,8 @@ a {
 
 .accept-button {
   padding: 8px 16px;
-  background-color: #ededed;
-  color: rgb(0, 0, 0);
+  background-color: #4dade9;
+  color: rgb(254, 254, 254);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -564,8 +564,8 @@ a {
   display: inline-block;
   margin-bottom: 20px;
   padding: 8px 16px;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #4dade9;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 500;
@@ -634,17 +634,18 @@ a {
 
 .edit-button {
   padding: 6px 12px;
-  background-color: #f0f2f5;
+  background-color: #4dade9;
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
   margin-left: 6rem;
+  color: white;
 }
 
 .edit-button:hover {
-  background-color: #e0e2e5;
+  background-color: #4dade9;
 }
 
 .name-and-edit {
@@ -658,7 +659,8 @@ a {
   padding: 8px 16px;
   cursor: pointer;
   z-index: 1;
-  background: #f0f0f0;
+  background: #4dade9;
   border: none;
   border-radius: 4px;
+  color: white;
 }
