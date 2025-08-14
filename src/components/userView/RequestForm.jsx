@@ -1,17 +1,17 @@
-import { useNavigate } from "react-router-dom"
-import { useState } from "react"
-import { BASE_URL } from "../../services/api"
-import axios from "axios"
-import Client from "../../services/api"
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { BASE_URL } from '../../services/api'
+import axios from 'axios'
+import Client from '../../services/api'
 
 const RequestForm = ({ user }) => {
   let navigate = useNavigate()
 
   const initialState = {
-    category: "",
-    title: "",
-    description: "",
-    pay: "",
+    category: '',
+    title: '',
+    description: '',
+    pay: ''
   }
   const [formValues, setFormValues] = useState(initialState)
 
@@ -23,11 +23,11 @@ const RequestForm = ({ user }) => {
     e.preventDefault()
     const response = await Client.post(`${BASE_URL}/request`, {
       ...formValues,
-      userId: user.id,
+      userId: user.id
     })
 
     setFormValues(initialState)
-    navigate("/requests/active")
+    navigate('/requests/active')
   }
 
   return (
@@ -48,7 +48,7 @@ const RequestForm = ({ user }) => {
                 required
                 className="form-input"
               >
-                <option value=""></option>
+                <option value="carpentry">carpentry</option>
                 <option value="plumbing">plumbing</option>
                 <option value="electrical">electrical</option>
                 <option value="painting">painting</option>
