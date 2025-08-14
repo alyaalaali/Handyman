@@ -43,7 +43,7 @@ const ReviewForm = ({ user }) => {
   const addReview = async (e) => {
     e.preventDefault()
     try {
-      const response = await Client.post("/review/new", {
+      const response = await Client.post("/review", {
         ...formValues,
         requestId,
         userId: user.id,
