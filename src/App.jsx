@@ -9,14 +9,10 @@ import Home from "./components/Home"
 import Request from "./components/userView/Request"
 import { CheckSession } from "./services/Auth"
 import ProviderApplications from "./components/providerView/ProviderApplications"
-import UserDashboard from "./components/userView/UserDashboard"
-import ReviewForm from "./components/userView/ReviewForm"
 import MyProfile from "./components/providerView/MyProfile"
-import PublicProfile from "./components/PublicProfile"
 import ProviderCategories from "./components/providerView/ProviderCategories"
 import CategoryRequests from "./components/providerView/CategoryRequests"
 import ProRequestDetails from "./components/providerView/ProRequestDetials"
-import ApplicantsList from "./components/userView/ApplicantList"
 import ProviderProfile from "./components/userView/ProviderProfile"
 
 const App = () => {
@@ -52,14 +48,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/profile/:id" element={<ProviderProfile />} />
 
-          {user && (
+          {user?.userType === "user" && (
             <>
               <Route path="/requests/*" element={<Request user={user} />} />
             </>
-          )}
-
-          {user?.userType === "user" && (
-            <Route path="/dashboard" element={<UserDashboard user={user} />} />
           )}
           {user?.userType === "provider" && (
             <>

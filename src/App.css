@@ -134,7 +134,7 @@ body {
   padding: 1rem;
   position: fixed;
   height: calc(100vh - 70px);
-  top: 70px;
+  top: 50px;
   left: 0;
 }
 
@@ -247,15 +247,16 @@ body {
 }
 
 .category {
+  margin-left: 110px;
   background: #f3f3f3;
   padding: 0.35rem 1rem;
   border-radius: 1rem;
   font-size: 0.9rem;
   color: #555;
-  margin-left: auto;
 }
 
 .pay {
+  margin-left: 10px;
   font-weight: 600;
   color: #2a7f2a;
   font-size: 1.1rem;
@@ -273,6 +274,7 @@ body {
 }
 
 .provider-categories h2 {
+  margin-top: 3rem;
   font-size: 2rem;
   margin-bottom: 2rem;
 }
@@ -283,6 +285,14 @@ body {
   gap: 2rem;
   list-style: none;
   padding: 0;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 .category-item {
@@ -290,6 +300,8 @@ body {
   border: 1px solid #e1e1e1;
   border-radius: 10px;
   transition: transform 0.2s;
+  width: 250px;
+  display: flex;
 }
 
 .category-item:hover {
@@ -302,11 +314,13 @@ body {
   padding: 1.5rem;
   text-decoration: none;
   color: #333;
+  align-items: center;
+  width: 100%;
 }
 
 .category-image {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin: 0 auto 1rem;
   display: block;
 }
@@ -314,6 +328,7 @@ body {
 .category-name {
   font-weight: 600;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 /* Category Requests */
@@ -434,6 +449,8 @@ body {
 }
 
 .provider-applications h2 {
+  margin-top: 3rem;
+
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -501,6 +518,9 @@ body {
 
 .reviews-section h3 {
   margin-bottom: 15px;
+}
+a {
+  text-decoration: none;
 }
 
 .accept-button {
@@ -629,4 +649,16 @@ body {
 
 .name-and-edit {
   margin-top: 10px;
+}
+
+.nav-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  z-index: 1;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 4px;
 }

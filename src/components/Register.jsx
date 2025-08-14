@@ -13,7 +13,11 @@ const Register = () => {
   if (userType) {
     return (
       <div className="register-container">
-        {userType === "user" ? <UserRegister /> : <ProviderRegister />}
+        {userType === "user" ? (
+          <UserRegister setUserType={setUserType} />
+        ) : (
+          <ProviderRegister setUserType={setUserType} />
+        )}
       </div>
     )
   }
@@ -38,7 +42,7 @@ const Register = () => {
         </div>
 
         <p className="login-text">
-          Already have an account?{" "}
+          Already have an account?
           <span onClick={() => navigate("/login")} className="login-link">
             Login here
           </span>

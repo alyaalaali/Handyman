@@ -20,10 +20,9 @@ const Request = ({ user }) => {
               path="/:requestId/applicants"
               element={<ApplicantsList user={user} />}
             />
-
-            <Route path="/new" element={<RequestForm user={user} />} />
+            <Route path="/" element={<RequestForm user={user} />} />
             <Route path="/active" element={<ActiveRequests />} />
-            <Route path="/completed" element={<CompletedRequests />} />
+            <Route path="/closed" element={<CompletedRequests />} />
             <Route
               path="/:requestId"
               element={
@@ -36,7 +35,7 @@ const Request = ({ user }) => {
             />
 
             <Route
-              path="/:requestId/review/new"
+              path="/:requestId/review/"
               element={
                 <ReviewForm
                   user={user}

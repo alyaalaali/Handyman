@@ -19,16 +19,13 @@ const Login = ({ setUser }) => {
     setFormValues(initialState)
     setUser(payload)
     if (payload.userType === "user") {
-      navigate("/dashboard")
+      navigate("/requests")
     } else if (payload.userType === "provider") {
       navigate("/categories")
-    } else {
-      console.error("Unknown user type:", payload.userType)
     }
   }
-
   return (
-    <div className="form">
+    <div className="form ">
       <div className="form-bubble">
         <h2>Sign In</h2>
 

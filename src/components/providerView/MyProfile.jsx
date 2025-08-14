@@ -26,7 +26,7 @@ const MyProfile = () => {
     setEdit(false)
   }
 
-  if (!profile) return <div>No profile found</div>
+  if (!profile) return <div>loading...</div>
 
   return (
     <div>
@@ -64,9 +64,9 @@ const MyProfile = () => {
           {profile._id && <Reviews providerId={profile._id} />}
         </div>
       ) : (
-        <div className="form">
+        <div className="form request-form">
           <button
-            className="cancel-button"
+            className="nav-back back-link"
             type="button"
             onClick={() => setEdit(false)}
           >
