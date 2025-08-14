@@ -61,8 +61,9 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
         >
           Back
         </button>
+
         <span className="category">{request.category}</span>
-        <span className="pay">${request.pay}</span>
+        <span className="pay">BD {request.pay}</span>
         <div className="request-header">
           <h2>{request.title}</h2>
           <div className="title-info"></div>
@@ -72,13 +73,7 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
             <h3>Description</h3>
             <p>{request.description}</p>
           </div>
-          <div className="form-group">
-            <h3 className="form-label">Posted By</h3>
-            <div className="user-info">
-              <p>{request.userId.name}</p>
-              <p>{request.userId.email}</p>
-            </div>
-          </div>
+
           <div className="form-group">
             <h3 className="form-label">Posted On</h3>
             <p>{new Date(request.createdAt).toLocaleDateString()}</p>
@@ -116,7 +111,7 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
               </button>
             )
           ) : (
-            <Link to={`/requests/${request._id}/review/new`}>
+            <Link to={`/requests/${request._id}/review`}>
               <button className="form-button">Review</button>
             </Link>
           )}

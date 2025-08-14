@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { RegisterProvider } from "../services/Auth"
 
-const ProviderRegister = () => {
+const ProviderRegister = ({ setUserType }) => {
   let navigate = useNavigate()
 
   const initialState = {
@@ -65,8 +65,11 @@ const ProviderRegister = () => {
 
   return (
     <div className="form">
+      <button className="nav-back back-link" onClick={() => setUserType(null)}>
+        Back
+      </button>
+
       <div className="form-bubble">
-        {" "}
         <h2>Register as a service provider!</h2>
         <div className="form-content">
           <form onSubmit={handleSubmit}>

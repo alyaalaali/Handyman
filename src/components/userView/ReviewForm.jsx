@@ -43,7 +43,7 @@ const ReviewForm = ({ user }) => {
   const addReview = async (e) => {
     e.preventDefault()
     try {
-      const response = await Client.post("/review/new", {
+      const response = await Client.post("/review", {
         ...formValues,
         requestId,
         userId: user.id,
@@ -68,10 +68,11 @@ const ReviewForm = ({ user }) => {
   return (
     <div className="form request-form">
       <div className="form-bubble">
-        <h2>Rate Your Experience</h2>
         <Link to={`/requests/${requestId}`}>
-          <button>Back</button>
+          <button className="back-btn">Back</button>
         </Link>
+        <h2>Rate Your Experience</h2>
+
         {showForm ? (
           <form onSubmit={addReview} className="form-content">
             <div className="form-group">
@@ -110,7 +111,7 @@ const ReviewForm = ({ user }) => {
             <p>
               <strong>Review:</strong> {existingReview.description}
             </p>
-            <button onClick={deleteReview} className="delete-button">
+            <button onClick={deleteReview} className="form-button">
               Delete Review
             </button>
           </div>
