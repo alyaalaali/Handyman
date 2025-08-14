@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react"
-import Client from "../../services/api"
-import { BASE_URL } from "../../services/api"
+import { useEffect, useState } from "react"
+import Client, { BASE_URL } from "../../services/api"
 
 const MyProfile = () => {
   const [profile, setProfile] = useState(null)
