@@ -17,9 +17,7 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
           setHasReviewed(true)
           setExistingReview(response.data)
         }
-      } catch (error) {
-        console.log("No existing review found.")
-      }
+      } catch (error) {}
     }
 
     const getRequestDetails = async () => {

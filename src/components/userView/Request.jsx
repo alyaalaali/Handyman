@@ -17,14 +17,14 @@ const Request = ({ user }) => {
         <main className="main-content">
           <Routes>
             <Route
-              path="/:requestId/applicants"
+              path=":requestId/applicants"
               element={<ApplicantsList user={user} />}
             />
-            <Route path="/" element={<RequestForm user={user} />} />
-            <Route path="/active" element={<ActiveRequests />} />
-            <Route path="/closed" element={<CompletedRequests />} />
+            <Route index element={<RequestForm user={user} />} />
+            <Route path="active" element={<ActiveRequests />} />
+            <Route path="closed" element={<CompletedRequests />} />
             <Route
-              path="/:requestId"
+              path=":requestId"
               element={
                 <RequestDetails
                   hasReviewed={hasReviewed}
@@ -35,7 +35,7 @@ const Request = ({ user }) => {
             />
 
             <Route
-              path="/:requestId/review/"
+              path=":requestId/review"
               element={
                 <ReviewForm
                   user={user}

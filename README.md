@@ -1,6 +1,6 @@
 ## Handyman MERN-Stack Application
 
-![home page](image.png)
+![home page](./public/images/image.png)
 
 ### 👤 Members
 
@@ -9,6 +9,8 @@ Created by Alya Alaali | Mohamed Rashad | Abdulaziz Alabdulla
 ## 📜 Description
 
 Handyman is a dynamic online services marketplace that seamlessly connects users with experienced service providers. Whether you want to get work done or offer your professional expertise, the site provides an easy-to-use, secure, and interactive environment.
+
+You can view our app here: [Handyman!](https://thisjustaplaceholder)
 
 ## 🔖 Technologies used
 
@@ -21,15 +23,17 @@ Handyman is a dynamic online services marketplace that seamlessly connects users
 
 - **Entity Relationship Diagram** ![Image 2](https://i.imgur.com/9JKG9kD.png)
 
-##### You can view our app prototype on Figma: [Handyman!](https://www.figma.com/design/K3EkViLOZxOcrU9VUDjuq9/Handyman?node-id=0-1&p=f&t=VXM9YghfTG9pi44E-0)
+##### Figma Wireframes: [Handyman!](https://www.figma.com/design/K3EkViLOZxOcrU9VUDjuq9/Handyman?node-id=0-1&p=f&t=VXM9YghfTG9pi44E-0)
 
-##### Trello Board: [Handyman](https://trello.com/b/R97Ba7Lh/handyman-project)
+##### Trello Board: [Handyman!](https://trello.com/b/R97Ba7Lh/handyman-project)
+
+##### Backend Repo: [Handyman!](https://github.com/alyaalaali/Handyman-app-BE)
 
 ---
 
 ### Future Enhancement
 
-- live chats
+- live chats between user and provider
 - notification center
 - provider search bar
 
@@ -40,4 +44,4 @@ Handyman is a dynamic online services marketplace that seamlessly connects users
 1. [star rating](https://medium.com/@ccchimento/user-ratings-with-javascript-and-react-c33e1a3137bc)
 2. [category selection](https://stackoverflow.com/questions/66624289/how-to-handle-the-the-onclick-events-on-checkbox-in-react-js)
 
-3. i would also like to thank our instructor associate, zainab for her profound help and support throughout the making of this project.
+3. I’d also like to thank our instructor associate, Zainab, for her help and support with this project.
