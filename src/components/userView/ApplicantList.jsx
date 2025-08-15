@@ -20,7 +20,6 @@ const ApplicantsList = ({ user }) => {
     await Client.put(`/request/${requestId}/accept/${providerId}`)
     const response = await Client.get(`/request/${requestId}/applicants`)
     setRequest(response.data)
-    console.log(response.data)
     setApplicants(response.data.appliedBy || [])
   }
 

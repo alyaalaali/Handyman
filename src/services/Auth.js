@@ -32,8 +32,6 @@ export const SignIn = async (data) => {
 export const CheckSession = async () => {
   try {
     const res = await Client.get("/auth/session")
-    console.log("CheckSession:")
-    console.log(res.data)
     // Checks if there is a token and if it is valid
     return res.data
   } catch (error) {

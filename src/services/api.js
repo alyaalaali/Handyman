@@ -13,7 +13,6 @@ Client.interceptors.request.use(
     if (token) {
       config.headers["authorization"] = `Bearer ${token}`
     }
-    console.log("intercept!")
     // We return the new config if the token exists or the default config if no token exists.
     return config
     // Provides the token to each request that passes through axios

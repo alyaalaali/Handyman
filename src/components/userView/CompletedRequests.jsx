@@ -36,7 +36,7 @@ const CompletedRequests = () => {
                   <h3 className="request-title">{request.title}</h3>
                   <span className="request-date">
                     {new Date(request.createdAt).toLocaleDateString()}
-                  </span>{" "}
+                  </span>
                 </div>
 
                 <p>Description: {request.description}</p>

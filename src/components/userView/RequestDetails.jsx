@@ -10,12 +10,9 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
   useEffect(() => {
     const fetchReview = async () => {
       try {
-        console.log("fetch review")
-
         const response = await Client.get(
           `http://localhost:3000/review/${requestId}`
         )
-        console.log("response", response.data)
         if (response.data) {
           setHasReviewed(true)
           setExistingReview(response.data)
@@ -27,7 +24,6 @@ const RequestDetails = ({ hasReviewed, setHasReviewed, user }) => {
 
     const getRequestDetails = async () => {
       const response = await Client.get(`${BASE_URL}/request/${requestId}`)
-      console.log(response.data)
       setRequest(response.data)
 
       if (user && requestId) {
