@@ -6,14 +6,13 @@
 
 Created by Alya Alaali | Mohamed Rashad | Abdulaziz Alabdulla
 
-### Deployment
-Deployed using Surge on handyman.surge.sh
+
 
 ## 📜 Description
 
 Handyman is a dynamic online services marketplace that seamlessly connects users with experienced service providers. Whether you want to get work done or offer your professional expertise, the site provides an easy-to-use, secure, and interactive environment.
 
-You can view our app here: [Handyman!](https://thisjustaplaceholder)
+You can view our app here: [Handyman!](https://handyman-6moyg29uu-mohameds-projects-d041cd9e.vercel.app/)
 
 ## 🔖 Technologies used
 
